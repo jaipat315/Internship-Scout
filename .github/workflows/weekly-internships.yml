@@ -1,0 +1,41 @@
+name: Scout Weekly Internship Scan
+
+on:
+  schedule:
+    # 14:00 UTC = 9:00 AM EST / 10:00 AM EDT on Mondays.
+    - cron: '0 14 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scout-weekly-scan
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check employer boards and update public dataset
+        run: python scripts/update_jobs.py
+      - name: Commit refreshed listings only if changed
+        run: |
+          git config user.name "Scout Bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/listings.json data/listings.js data/latest_digest.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: refresh weekly internship listings"
+            git push
+          else
+            echo "No changes to commit"
+          fi
