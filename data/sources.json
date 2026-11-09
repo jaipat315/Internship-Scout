@@ -6,21 +6,9 @@
     "location_scope": "Nationwide"
   },
   {
-    "company": "Corient",
-    "type": "greenhouse",
-    "board": "corient",
-    "location_scope": "Atlanta"
-  },
-  {
     "company": "Mercer Advisors",
     "type": "greenhouse",
     "board": "merceradvisors",
-    "location_scope": "Atlanta"
-  },
-  {
-    "company": "Wealth Enhancement Group",
-    "type": "greenhouse",
-    "board": "wealthenhancementgroup",
     "location_scope": "Atlanta"
   },
   {
@@ -33,12 +21,6 @@
     "company": "Robinhood",
     "type": "greenhouse",
     "board": "robinhood",
-    "location_scope": "Nationwide"
-  },
-  {
-    "company": "Plaid",
-    "type": "lever",
-    "board": "plaid",
     "location_scope": "Nationwide"
   },
   {

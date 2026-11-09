@@ -78,6 +78,9 @@ def normalize(text):
 
 
 def classify_category(title, text):
+    # Mercer Advisors is a wealth management firm; broad internship copy may mention tax benefits.
+    if re.search(r'\bMercer Advisors\b', title, re.I):
+        return 'Wealth'
     for label, matcher in FIELD_MATCHERS:
         if matcher.search(title):
             return label
