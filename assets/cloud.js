@@ -125,7 +125,14 @@
     setFeedback('Sending sign-in link…');
     const redirectTo=window.location.origin+window.location.pathname;
     const result=await client.auth.signInWithOtp({email,options:{emailRedirectTo:redirectTo,shouldCreateUser:true}});
-    setFeedback(result.error?'Email sign-in failed: '+result.error.message:'Check your inbox. Open the sign-in link on the device you want to sync.');
+    const code = result.error?.code || '';
+    if (code === 'email_address_not_authorized' || /address not authorized/i.test(result.error?.message || '')) {
+      setFeedback('Email login is not ready for classmates yet. The site owner must enable custom SMTP in Supabase.');
+    } else if (code === 'over_email_send_rate_limit' || result.error?.status === 429) {
+      setFeedback('Email login limit reached. The site owner needs to configure a dedicated SMTP provider; try later.');
+    } else {
+      setFeedback(result.error ? 'Email sign-in failed: '+result.error.message : 'Check your inbox. Open the sign-in link on the device you want to sync.');
+    }
   });
   $('#cloudRefresh').addEventListener('click',async()=>{pending=true;await flush();});
   $('#cloudSignOut').addEventListener('click',async()=>{
