@@ -1,0 +1,41 @@
+name: Scout App Code Checks
+on:
+  push:
+    paths:
+      - 'assets/**'
+      - 'index.html'
+      - 'scripts/**'
+      - 'supabase/**'
+      - '.github/workflows/check-app.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check browser JavaScript syntax
+        run: |
+          node --check assets/app.js
+          node --check assets/cloud.js
+          node --check assets/cloud-config.js
+          node --check sw.js
+      - name: Check Python scanner syntax
+        run: python3 -m py_compile scripts/update_jobs.py
+      - name: Verify required files and cloud setup placeholders
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json
+          html=Path('index.html').read_text()
+          for key in ('id="accountBtn"','id="cloudEmailForm"','id="cloudSignOut"','data-view="today"','assets/cloud.js'):
+              assert key in html,key
+          data=json.loads(Path('data/listings.json').read_text())
+          assert isinstance(data.get('jobs'),list)
+          assert Path('supabase/scout-progress.sql').exists()
+          cloud=Path('assets/cloud-config.js').read_text()
+          assert 'service_role' not in cloud.split('window.SCOUT_CLOUD_CONFIG = ')[-1]
+          print('Scout static checks passed.')
+          PY
