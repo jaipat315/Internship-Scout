@@ -116,3 +116,7 @@ The feed checks 31 public ATS boards (Greenhouse, Lever, Ashby), including Atlan
 
 The **live-feed** label means the employer returned the posting during the most recent successful scan. A job that disappears is marked *not-seen* so students can re-check it. A manually seeded *lead* is not a verified open posting. Recruiting timelines and graduation requirements must still be reviewed individually; some postings close before their ATS is updated.
 
+
+## Employer-page leads outside the three automated feeds
+
+On Nov 9, 2026, employer careers pages for Truist, Invesco, Assurant, HNTB, Cherry Bekaert, Marsh, the Federal Reserve Bank of Atlanta, GE Vernova, Advocate Health, KeyBank, American Global, Porsche and Inspire Brands were added as **leads**. They include useful Atlanta and remote positions but are not checked automatically by the Greenhouse/Lever/Ashby scanner. If the employer has closed the posting since it was checked, clicking the link may show a closed job; always verify current availability. Posted deadlines are recorded when found. Insurance brokerage and underwriting appear under their own optional field filter, separate from banking.

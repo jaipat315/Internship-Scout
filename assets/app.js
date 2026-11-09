@@ -35,7 +35,7 @@
   };
   const score = j => {
     const cat = String(j.category || '');
-    let value = ({ Finance: 105, Accounting: 105, Audit: 105, Tax: 102, Banking: 100, Risk: 96, Wealth: 95, Investment: 95, Analytics: 80, Consulting: 78, Strategy: 69, Operations: 62, Marketing: 42, Other: 30 })[cat] || 40;
+    let value = ({ Finance: 105, Accounting: 105, Audit: 105, Tax: 102, Banking: 100, Insurance: 94, Risk: 96, Wealth: 95, Investment: 95, Analytics: 80, Consulting: 78, Strategy: 69, Operations: 62, Marketing: 42, Other: 30 })[cat] || 40;
     value += ({ confirmed: 18, possible: 7, unknown: 0, ineligible: -50 })[j.eligibility] || 0;
     if (getArea(j) === 'Atlanta') value += 22;
     if (getArea(j) === 'Athens') value += 26;

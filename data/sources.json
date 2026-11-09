@@ -190,5 +190,17 @@
     "type": "greenhouse",
     "board": "asteraearlycareer2027",
     "location_scope": "United States"
+  },
+  {
+    "company": "Amwins Group",
+    "type": "greenhouse",
+    "board": "amwinsoffline",
+    "location_scope": "United States"
+  },
+  {
+    "company": "Jencap",
+    "type": "greenhouse",
+    "board": "jencapinc",
+    "location_scope": "United States"
   }
 ]

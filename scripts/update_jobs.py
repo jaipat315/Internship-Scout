@@ -185,6 +185,8 @@ def field_entry(company, board, key, title, location, body, url, posted, remote=
         return None
     area = classify_area(location, remote)
     category = classify_category(title, body, department)
+    if company in {'Amwins Group', 'Jencap'} and category in {'Banking', 'Finance', None}:
+        category = 'Risk'  # insurance brokerage / underwriting, not commercial banking
     if not category: return None
     season = find_season(title, body)
     eligibility, eligibility_note = classify_eligibility(title, body)
