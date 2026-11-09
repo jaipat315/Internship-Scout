@@ -1,22 +1,14 @@
 {
-  "updated_at": "2026-11-09T23:52:05Z",
+  "updated_at": "2026-11-09T23:55:58Z",
   "added_ids": [
-    "feed-point72-7586061002",
-    "feed-point72-7297642002",
-    "feed-asteraearlycareer2027-4727602005",
-    "feed-asteraearlycareer2027-4743033005",
-    "feed-asteraearlycareer2027-4743826005",
-    "feed-asteraearlycareer2027-4732417005",
-    "feed-asteraearlycareer2027-4731995005",
-    "feed-asteraearlycareer2027-4732412005",
-    "feed-asteraearlycareer2027-4743399005",
-    "feed-asteraearlycareer2027-4731993005",
-    "feed-asteraearlycareer2027-4732216005",
-    "feed-asteraearlycareer2027-4731991005",
-    "feed-asteraearlycareer2027-4724488005"
+    "feed-andurilindustries-5271672007",
+    "feed-andurilindustries-5271826007",
+    "feed-andurilindustries-5269977007",
+    "feed-andurilindustries-5271686007",
+    "feed-amwinsoffline-4417571009",
+    "feed-amwinsoffline-4467158009",
+    "feed-jencapinc-5198365007"
   ],
-  "errors": [
-    "Anduril: TimeoutError — The read operation timed out"
-  ],
-  "message": "Daily scan completed: 31 employer boards checked, 13 newly discovered internships."
+  "errors": [],
+  "message": "Daily scan completed: 34 employer boards checked, 7 newly discovered internships."
 }
