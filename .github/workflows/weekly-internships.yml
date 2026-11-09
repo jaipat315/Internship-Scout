@@ -1,6 +1,10 @@
 name: Scout Weekly Internship Scan
 
 on:
+  push:
+    paths:
+      - "scripts/update_jobs.py"
+      - "data/sources.json"
   schedule:
     # 14:00 UTC = 9:00 AM EST / 10:00 AM EDT on Mondays.
     - cron: '0 14 * * 1'

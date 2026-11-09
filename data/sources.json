@@ -1,12 +1,86 @@
 [
-  {"company":"Point72","type":"greenhouse","board":"point72","location_scope":"Nationwide"},
-  {"company":"Corient","type":"greenhouse","board":"corient","location_scope":"Atlanta"},
-  {"company":"Mercer Advisors","type":"greenhouse","board":"merceradvisors","location_scope":"Atlanta"},
-  {"company":"Wealth Enhancement Group","type":"greenhouse","board":"wealthenhancementgroup","location_scope":"Atlanta"},
-  {"company":"Salesloft","type":"greenhouse","board":"salesloft","location_scope":"Atlanta"},
-  {"company":"Greenlight","type":"greenhouse","board":"greenlight","location_scope":"Atlanta"},
-  {"company":"Robinhood","type":"greenhouse","board":"robinhood","location_scope":"Nationwide"},
-  {"company":"Plaid","type":"lever","board":"plaid","location_scope":"Nationwide"},
-  {"company":"Ramp","type":"ashby","board":"ramp","location_scope":"Nationwide"},
-  {"company":"Mercury","type":"ashby","board":"mercury","location_scope":"Nationwide"}
+  {
+    "company": "Point72",
+    "type": "greenhouse",
+    "board": "point72",
+    "location_scope": "Nationwide"
+  },
+  {
+    "company": "Corient",
+    "type": "greenhouse",
+    "board": "corient",
+    "location_scope": "Atlanta"
+  },
+  {
+    "company": "Mercer Advisors",
+    "type": "greenhouse",
+    "board": "merceradvisors",
+    "location_scope": "Atlanta"
+  },
+  {
+    "company": "Wealth Enhancement Group",
+    "type": "greenhouse",
+    "board": "wealthenhancementgroup",
+    "location_scope": "Atlanta"
+  },
+  {
+    "company": "Salesloft",
+    "type": "greenhouse",
+    "board": "salesloft",
+    "location_scope": "Atlanta"
+  },
+  {
+    "company": "Robinhood",
+    "type": "greenhouse",
+    "board": "robinhood",
+    "location_scope": "Nationwide"
+  },
+  {
+    "company": "Plaid",
+    "type": "lever",
+    "board": "plaid",
+    "location_scope": "Nationwide"
+  },
+  {
+    "company": "Ramp",
+    "type": "ashby",
+    "board": "ramp",
+    "location_scope": "Nationwide"
+  },
+  {
+    "company": "Mercury",
+    "type": "ashby",
+    "board": "mercury",
+    "location_scope": "Nationwide"
+  },
+  {
+    "company": "Moore Colson",
+    "type": "lever",
+    "board": "moorecolson",
+    "location_scope": "Atlanta"
+  },
+  {
+    "company": "Aprio",
+    "type": "lever",
+    "board": "Aprio",
+    "location_scope": "Atlanta"
+  },
+  {
+    "company": "Greenlight",
+    "type": "lever",
+    "board": "greenlight",
+    "location_scope": "Atlanta"
+  },
+  {
+    "company": "EARNEST Partners",
+    "type": "lever",
+    "board": "Earnestpartners",
+    "location_scope": "Atlanta"
+  },
+  {
+    "company": "1Password",
+    "type": "ashby",
+    "board": "1password",
+    "location_scope": "Remote"
+  }
 ]

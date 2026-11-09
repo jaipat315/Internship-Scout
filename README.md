@@ -1,6 +1,6 @@
 # Scout — UGA & Atlanta Internship Tracker
 
-**A free, mobile-friendly web app** for UGA students graduating in May 2029. Search and save internships, mark application stages, write notes, export your tracker, and review weekly new openings. The initial data is a curated set of internship **leads**, *not* a guarantee each role is still open or class-year eligible.
+**A free, mobile-friendly web app** for UGA students across class years, focused on finance and accounting internships in Athens and metro Atlanta. Search and save internships, mark application stages, write notes, export your tracker, and review weekly new openings. The initial data is a curated set of internship **leads**, *not* a guarantee each role is still open or class-year eligible.
 
 ## Run it in under a minute (Mac or Windows)
 
@@ -21,7 +21,7 @@ GitHub Pages is free for public repositories and requires no server. If you pref
 5. Go to **Actions → Scout Weekly Internship Scan → Run workflow** for a first test. Verify a successful run, check the new digest, and reload the website. Scheduled runs follow at **14:00 UTC every Monday** (9am Eastern standard time; 10am during daylight time). GitHub scheduled workflows may be delayed.
 6. Optional: On your phone, open the published site in Safari, choose **Share → Add to Home Screen** to install an app-style shortcut.
 
-The scanner uses public Greenhouse, Lever and Ashby employer posting APIs only. It **does not** scrape behind logins, bypass authentication, collect private Handshake data, or automatically apply for you. Individual boards may not exist or may reject requests; those errors appear in `data/latest_digest.json`. A failed complete scan does not overwrite the last verified dataset. The scanner is intentionally focused on employers currently configured; it will **not find every internship in Atlanta**.
+The scanner uses public Greenhouse, Lever and Ashby employer posting APIs only. It includes configured public accounting feeds (Moore Colson, Aprio), corporate finance, banking, wealth and risk feeds, and excludes software engineering roles unrelated to the target fields. It **does not** scrape behind logins, bypass authentication, collect private Handshake data, or automatically apply for you. Individual boards may not exist or may reject requests; those errors appear in `data/latest_digest.json`. A failed complete scan does not overwrite the last verified dataset. The scanner is intentionally focused on configured public employer feeds; it will **not find every finance or accounting internship**. Many Big Four and local firm career sites use systems not yet integrated.
 
 ## Configure employer feeds
 
@@ -37,14 +37,14 @@ Each entry needs a public employer ATS board slug and `type` (`greenhouse`, `lev
 
 ## What the app can and cannot confirm
 
-- **Confirmed 2029 fit:** the employer text explicitly mentions a sophomore/rising junior or a 2029 graduation requirement. Always verify precise dates and degree restrictions.
-- **Possible 2029 fit:** a previously reviewed listing may accept undergraduates without explicitly excluding May 2029; check the actual description again.
-- **Check class-year fit:** insufficient information; **never** assume you're eligible.
+- **Class-year evidence found:** employer text mentions a class level or graduation year; that does not guarantee the student meets all qualifications. Always verify precise dates and degree restrictions.
+- **Possible match:** an earlier lead could fit, but its graduation requirements need verification.
+- **Eligibility not stated:** insufficient details to confirm which class years qualify. The graduation-year filter keeps these unknown roles visible, marked for review.
 - **Employer feed:** role was returned by a successful official ATS board scan. This indicates it appeared in that feed at scan time, **not** that the employer will still accept applications when you click it.
 - **Initial lead:** discovered on a job board at launch, not necessarily live or eligible today.
 - **New to Scout:** first detected by the tracker within seven days; **not necessarily newly posted by the employer**.
 
-UGA Handshake access is student-authenticated; use the app's **Add opportunity** feature to save those jobs manually. ChatGPT's separate Monday internship reminder is not directly connected to the site's data, and the site cannot send push/email alerts by itself. It is designed as the browser dashboard to complement that weekly update.
+Share the public site with classmates. Bookmarks, notes and applications remain private to each person's own browser (not synced between users or devices). Graduation-year filtering only excludes postings with an explicitly different detected graduation year; all unknown-year roles remain visible for individual verification. UGA Handshake access is student-authenticated; use the app's **Add opportunity** feature to save those jobs manually. ChatGPT's separate Monday internship reminder is not directly connected to the site's data, and the site cannot send push/email alerts by itself. It is designed as the browser dashboard to complement that weekly update.
 
 ## Run the scan on your computer
 
@@ -63,3 +63,13 @@ Open `http://localhost:8000`. The script needs internet access; if all configure
 - Notes and statuses use browser local storage; **not synced across devices**.
 - Static hosting and scheduled workflow can be operated at **$0** within your GitHub account's included limits.
 - Verify employer posting URLs, eligibility, pay, and deadlines before making decisions. Some aggregator redirects and salaries may be stale or estimated.
+
+## Classmate-friendly scope
+
+- **Finance:** corporate finance, FP&A, treasury, financial analysis and pricing.
+- **Accounting:** financial reporting, controllership, bookkeeping, tax and assurance/audit.
+- **Banking and investments:** credit/underwriting, wealth management, private banking, asset management and investments.
+- **Adjacent business:** financial risk, compliance, consulting, analytics and business operations.
+- **Graduation-year selector:** classes of 2027–2031. A blank employer requirement never establishes eligibility; such roles stay visible but flagged for checking.
+
+The dashboard is public, but it does not create a public shared application database; personal tracking remains local to each browser. To offer public role submissions or shared notes later would require a moderated backend.
