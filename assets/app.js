@@ -25,22 +25,26 @@
   const isFresh = j => daysSince(j.first_seen) >= 0 && daysSince(j.first_seen) < 7;
   const getArea = j => j.area || (/(athens|watkinsville|bogart)/i.test(j.location) ? 'Athens' : /(atlanta|alpharetta|brookhaven|sandy springs|marietta|conyers|roswell|dunwoody|peachtree|norcross|duluth|decatur|smyrna|college park)/i.test(j.location) ? 'Atlanta' : /remote/i.test(j.location) ? 'Remote' : 'Nationwide');
   const hasApplied = id => ['applied','interview','offer','rejected'].includes(local.tracking[id]);
+  const getGradYears = j => {
+    if (Array.isArray(j.graduation_years) && j.graduation_years.length) return j.graduation_years.map(String);
+    return String(j.eligibility_note || '').match(/\b20(?:27|28|29|30|31)\b/g) || [];
+  };
   const score = j => {
     const cat = String(j.category || '');
-    let value = ({ Wealth: 110, Investment: 105, Finance: 100, Accounting: 90, Strategy: 80, Analytics: 75, Consulting: 72, Operations: 65, Marketing: 55, Other: 30 })[cat] || 40;
-    value += ({ confirmed: 35, possible: 12, unknown: 0, ineligible: -50 })[j.eligibility] || 0;
-    if (getArea(j) === 'Atlanta') value += 20;
-    if (getArea(j) === 'Athens') value += 25;
-    if (j.season === 'Summer 2027') value += 12;
-    if (j.season === 'Summer 2028' && ['Wealth','Investment'].includes(cat)) value += 11;
-    if (j.status === 'live-feed') value += 10;
+    let value = ({ Finance: 105, Accounting: 105, Audit: 105, Tax: 102, Banking: 100, Risk: 96, Wealth: 95, Investment: 95, Analytics: 80, Consulting: 78, Strategy: 69, Operations: 62, Marketing: 42, Other: 30 })[cat] || 40;
+    value += ({ confirmed: 18, possible: 7, unknown: 0, ineligible: -50 })[j.eligibility] || 0;
+    if (getArea(j) === 'Atlanta') value += 22;
+    if (getArea(j) === 'Athens') value += 26;
+    if (/2027/.test(j.season || '')) value += 10;
+    if (/2028/.test(j.season || '')) value += 7;
+    if (j.status === 'live-feed') value += 15;
     return value;
   };
   const labelForEligibility = j => {
-    if (j.eligibility === 'confirmed') return ['2029 fit confirmed','eligible'];
-    if (j.eligibility === 'possible') return ['Possible 2029 fit','possible'];
-    if (j.eligibility === 'ineligible') return ['Likely ineligible','check'];
-    return ['Check class-year fit','check'];
+    if (j.eligibility === 'confirmed') return ['Class-year evidence — verify','eligible'];
+    if (j.eligibility === 'possible') return ['Possible match — verify','possible'];
+    if (j.eligibility === 'ineligible') return ['May not qualify','check'];
+    return ['Class-year requirements unclear','check'];
   };
   function activeJobs() {
     let arr = getJobs();
@@ -48,10 +52,13 @@
     const area = $('#area').value;
     const category = $('#category').value;
     const eligibility = $('#eligibility').value;
+    const gradYear = $('#gradYear').value;
     if (q) arr = arr.filter(j => [j.title, j.company, j.location, j.category, j.season, j.eligibility_note].some(v => String(v || '').toLowerCase().includes(q)));
     if (area !== 'all') arr = arr.filter(j => getArea(j) === area);
     if (category !== 'all') arr = arr.filter(j => j.category === category);
     if (eligibility !== 'all') arr = arr.filter(j => j.eligibility === eligibility);
+    // Listings without a stated graduation year remain visible for verification.
+    if (gradYear !== 'all') arr = arr.filter(j => !getGradYears(j).length || getGradYears(j).includes(gradYear));
     if (view === 'new') arr = arr.filter(isFresh);
     if (view === 'saved') arr = arr.filter(j => local.saved.includes(j.id));
     if (view === 'applied') arr = arr.filter(j => local.tracking[j.id] && local.tracking[j.id] !== 'none');
@@ -76,7 +83,7 @@
     return `<article class="job-card">
       <div class="job-top"><div class="company-mark" data-tone="${tone}">${escaped(initial)}</div><div class="job-head"><div class="job-company">${name}</div><h3 class="job-title">${title}</h3></div><button class="save-btn ${saved ? 'is-saved' : ''}" data-action="save" data-id="${escaped(j.id)}" aria-label="${saved ? 'Remove bookmark' : 'Bookmark'} ${title}" title="${saved ? 'Remove bookmark' : 'Save listing'}">${saved ? '♥' : '♡'}</button></div>
       <div class="job-meta"><span>${escaped(j.location || 'Location unlisted')}</span><span>${escaped(j.season || 'Date unknown')}</span></div>
-      <div class="tagline"><span class="tag ${type}">${escaped(label)}</span><span class="tag">${escaped(j.category || 'Other')}</span>${j.status === 'live-feed' ? '<span class="tag eligible">Employer feed</span>' : ''}${isFresh(j) ? '<span class="tag status">New to Scout</span>' : ''}</div>
+      <div class="tagline"><span class="tag ${type}">${escaped(label)}</span><span class="tag">${escaped(j.category || 'Other')}</span>${getGradYears(j).length ? `<span class="tag">Grad ${escaped(getGradYears(j).join(', '))} mentioned</span>` : ''}${j.status === 'live-feed' ? '<span class="tag eligible">Employer feed</span>' : ''}${isFresh(j) ? '<span class="tag status">New to Scout</span>' : ''}</div>
       <p class="job-note">${escaped(j.eligibility_note || 'Confirm class standing, timing, and eligibility on the application.')} ${j.deadline ? 'Deadline: ' + escaped(dateFormat(j.deadline)) + '.' : ''}</p>
       <div class="job-bottom"><div><a href="${escaped(url || '#')}" target="_blank" rel="noopener noreferrer" ${!url?'aria-disabled="true"':''}>${url ? 'View listing ↗' : 'No direct link'}</a><div class="job-source-label" style="font-size:9px;margin-top:4px">${source}${j.salary ? ' · ' + escaped(j.salary) : ''}</div></div><div class="track-tools"><button class="notes-btn" data-action="notes" data-id="${escaped(j.id)}" title="Application notes">Notes</button><select aria-label="Application status for ${title}" data-status-id="${escaped(j.id)}"><option value="none"${sel('none')}>Not started</option><option value="planning"${sel('planning')}>Planning</option><option value="applied"${sel('applied')}>Applied</option><option value="interview"${sel('interview')}>Interview</option><option value="offer"${sel('offer')}>Offer</option><option value="rejected"${sel('rejected')}>Closed out</option></select>${j.status === 'manual' ? `<button class="custom-delete" title="Delete custom listing" data-action="delete" data-id="${escaped(j.id)}">✕</button>` : ''}</div></div>
     </article>`;
@@ -114,7 +121,7 @@
   }
   function setView(next) { view = next; render(); if (next !== 'all') $('#board').scrollIntoView({behavior:'smooth',block:'start'}); }
   $$('.tab, .nav-link').forEach(b => b.addEventListener('click',()=>setView(b.dataset.view)));
-  ['search','area','category','eligibility','sort'].forEach(id => $('#'+id).addEventListener(id==='search'?'input':'change',render));
+  ['search','area','category','gradYear','eligibility','sort'].forEach(id => $('#'+id).addEventListener(id==='search'?'input':'change',render));
   $('#showAll').addEventListener('click',()=>setView('all'));
   $('#results').addEventListener('click',e => {
     const btn = e.target.closest('button[data-action]'); if (!btn) return;
@@ -131,8 +138,8 @@
   $('#closeNotes').addEventListener('click',()=>$('#notesDialog').close()); $('#cancelNotes').addEventListener('click',()=>$('#notesDialog').close());
   $('#saveNotes').addEventListener('click',()=>{ if(notesId){local.notes[notesId]=$('#notesText').value.trim();persist();}$('#notesDialog').close(); });
   $('#exportCsv').addEventListener('click',()=>{
-    const headings=['Company','Title','Location','Field','Season','Eligibility','Application Status','URL','Deadline','Notes','Source'];
-    const rows=getJobs().map(j=>[j.company,j.title,j.location,j.category,j.season,j.eligibility,local.tracking[j.id]||'not started',j.url,j.deadline||'',local.notes[j.id]||'',j.source]);
+    const headings=['Company','Title','Location','Field','Season','Graduation Years Mentioned','Eligibility','Application Status','URL','Deadline','Notes','Source'];
+    const rows=getJobs().map(j=>[j.company,j.title,j.location,j.category,j.season,getGradYears(j).join(';'),j.eligibility,local.tracking[j.id]||'not started',j.url,j.deadline||'',local.notes[j.id]||'',j.source]);
     const cell=s=>{let v=String(s??''); if (/^[=+@\-\t\r]/.test(v))v="'"+v; return '"'+v.replace(/"/g,'""')+'"';};
     const csv='\uFEFF'+[headings,...rows].map(r=>r.map(cell).join(',')).join('\r\n'); const blob=new Blob([csv],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`scout-internships-${today()}.csv`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),500);
   });
