@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-11-09T21:06:08Z",
+  "updated_at": "2026-11-09T21:08:39Z",
   "update_type": "automated_feed_scan",
   "source_note": "ATS feeds checked. A job appears active only when an employer feed returned it; other listings remain unverified leads. Handshake requires a UGA login and is not scraped.",
   "successful_sources": 11,
-  "configured_sources": 14,
+  "configured_sources": 11,
   "jobs": [
     {
       "id": "feed-merceradvisors-4949043008",
@@ -11,7 +11,7 @@
       "title": "Mercer Advisors 2027 Summer Internship",
       "location": "Allentown; Atlanta; Austin; Bellevue; Boca Raton; Boston, Massachusetts, United States; Boulder; Dallas - Park Cities; Denver (Tech Center); Houston; Macon; Maryland; Memphis, Tennessee, United States; New York, New York, United States; Newport Beach; Portland South; Radnor; Santa Barbara; Schaumburg; Scottsdale; Sorrento Valley (San Diego); Springfield; Tampa; Walnut Creek; Washington DC; Woodland Hills",
       "area": "Atlanta",
-      "category": "Tax",
+      "category": "Wealth",
       "season": "Summer 2027",
       "eligibility": "confirmed",
       "eligibility_note": "Listing mentions sophomores or rising juniors; confirm full requirements",

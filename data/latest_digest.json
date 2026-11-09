@@ -1,12 +1,6 @@
 {
-  "updated_at": "2026-11-09T21:06:08Z",
-  "added_ids": [
-    "feed-moorecolson-726af35b-745f-4943-adcf-7c791b1a5101"
-  ],
-  "errors": [
-    "Corient: HTTPError — HTTP Error 404: Not Found",
-    "Wealth Enhancement Group: HTTPError — HTTP Error 404: Not Found",
-    "Plaid: HTTPError — HTTP Error 404: Not Found"
-  ],
-  "message": "Weekly scan completed: 11 employer boards checked, 1 newly discovered internships."
+  "updated_at": "2026-11-09T21:08:39Z",
+  "added_ids": [],
+  "errors": [],
+  "message": "Weekly scan completed: 11 employer boards checked, 0 newly discovered internships."
 }
