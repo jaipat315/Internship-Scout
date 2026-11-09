@@ -109,3 +109,10 @@ The job listings dashboard is public. With Supabase properly configured, persona
 3. Import intentionally *replaces* the tracker state in that browser. Download its backup first if it has existing progress.
 
 This protects progress between devices without a cloud project. Once Supabase is configured, email sign-in can provide automatic per-user syncing. Note: CSV exports are not the same as the complete private JSON backup.
+
+## Expanded live employer coverage (Nov 2026)
+
+The feed checks 31 public ATS boards (Greenhouse, Lever, Ashby), including Atlanta-area Frazier & Deeter, Hive Financial Systems, Northmarq, Secretariat and a nationwide group of accounting, banking, treasury, investment and finance companies. We deliberately show **U.S. listings nationwide** rather than hiding all non-Atlanta employers. Use location filters to narrow the board.
+
+The **live-feed** label means the employer returned the posting during the most recent successful scan. A job that disappears is marked *not-seen* so students can re-check it. A manually seeded *lead* is not a verified open posting. Recruiting timelines and graduation requirements must still be reviewed individually; some postings close before their ATS is updated.
+

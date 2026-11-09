@@ -64,5 +64,125 @@
     "type": "ashby",
     "board": "1password",
     "location_scope": "Remote"
+  },
+  {
+    "company": "Frazier & Deeter",
+    "type": "greenhouse",
+    "board": "frazierdeeter",
+    "location_scope": "United States"
+  },
+  {
+    "company": "Hive Financial Systems",
+    "type": "greenhouse",
+    "board": "hivefinancialsystems",
+    "location_scope": "United States"
+  },
+  {
+    "company": "Northmarq",
+    "type": "greenhouse",
+    "board": "northmarq",
+    "location_scope": "United States"
+  },
+  {
+    "company": "Secretariat",
+    "type": "greenhouse",
+    "board": "secretariatadvisorsllc",
+    "location_scope": "United States"
+  },
+  {
+    "company": "Certified Group",
+    "type": "greenhouse",
+    "board": "certifiedgroup",
+    "location_scope": "United States"
+  },
+  {
+    "company": "Galaxy",
+    "type": "greenhouse",
+    "board": "galaxydigitalservices",
+    "location_scope": "United States"
+  },
+  {
+    "company": "NMI",
+    "type": "greenhouse",
+    "board": "nmi",
+    "location_scope": "United States"
+  },
+  {
+    "company": "GCM Grosvenor",
+    "type": "greenhouse",
+    "board": "gcmgrosvenor",
+    "location_scope": "United States"
+  },
+  {
+    "company": "RCLCO",
+    "type": "greenhouse",
+    "board": "rclco",
+    "location_scope": "United States"
+  },
+  {
+    "company": "DriveWealth",
+    "type": "greenhouse",
+    "board": "drivewealth",
+    "location_scope": "United States"
+  },
+  {
+    "company": "Bridgewater Associates",
+    "type": "greenhouse",
+    "board": "bridgewater89",
+    "location_scope": "United States"
+  },
+  {
+    "company": "Anduril",
+    "type": "greenhouse",
+    "board": "andurilindustries",
+    "location_scope": "United States"
+  },
+  {
+    "company": "Verition Group",
+    "type": "greenhouse",
+    "board": "veritiongroupllcinternships",
+    "location_scope": "United States"
+  },
+  {
+    "company": "HPS Investment Partners",
+    "type": "greenhouse",
+    "board": "hpsinterns",
+    "location_scope": "United States"
+  },
+  {
+    "company": "Current Advisors & Partner Firms",
+    "type": "ashby",
+    "board": "current-advisors",
+    "location_scope": "United States"
+  },
+  {
+    "company": "Ibotta",
+    "type": "ashby",
+    "board": "ibotta",
+    "location_scope": "United States"
+  },
+  {
+    "company": "Antares",
+    "type": "ashby",
+    "board": "antares",
+    "location_scope": "United States"
+  },
+  {
+    "company": "Etched",
+    "type": "ashby",
+    "board": "Etched",
+    "location_scope": "United States"
+  },
+  {
+    "company": "Contoro",
+    "type": "ashby",
+    "board": "contoro",
+    "location_scope": "United States"
+  },
+  {
+    "company": "Scientech Research",
+    "type": "ashby",
+    "board": "scientech-research",
+    "location_scope": "United States"
   }
 ]

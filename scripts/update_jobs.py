@@ -22,27 +22,45 @@ NOW = datetime.now(timezone.utc)
 STAMP = NOW.isoformat(timespec='seconds').replace('+00:00', 'Z')
 TODAY = NOW.date().isoformat()
 
-INTERNSHIP = re.compile(r'\b(intern(ship)?|summer analyst|co[ -]?op|undergraduate associate)\b', re.I)
+INTERNSHIP = re.compile(r'\b(intern(ship|ships)?|summer analyst|summer associate|co[ -]?op|undergraduate associate)\b', re.I)
 EXCLUDE = re.compile(r'\b(MBA|Ph\.?D\.?|postdoc|graduate internship|master.s student)\b', re.I)
 # Avoid tagging technical internships as Finance just because they are at a fintech.
-NON_FINANCE_TITLE = re.compile(r'\b(software engineer(?:ing)?|frontend|backend|iOS engineer|android engineer|applied scientist|machine learning|devops|site reliability|graphic design|UX design|product designer|data engineer|hardware engineer)\b', re.I)
+NON_FINANCE_TITLE = re.compile(r'\b(software engineer(?:ing)?|frontend|backend|iOS engineer|android engineer|applied scientist|machine learning|devops|site reliability|graphic design|UX design|product designer|data engineer|hardware engineer|civil engineer|electrical engineer|mechanical engineer|construction engineering|biology|biochemistry|laboratory|nursing|pharmacy|engineering sciences|product management|cybersecurity)\b', re.I)
 ATL = re.compile(r'atlanta|alpharetta|sandy springs|brookhaven|marietta|buckhead|dunwoody|roswell|decatur|smyrna|norcross|duluth|johns creek|kennesaw|peachtree|chamblee|conyers|college park|suwanee|vinings|norcross|lawrenceville|tyrone|woodstock|acworth|cumming', re.I)
 ATH = re.compile(r'athens|watkinsville|bogart|oconee|statham|winterville', re.I)
 REMOTE = re.compile(r'\bremote\b|work from anywhere', re.I)
 FIELD_MATCHERS = [
     ('Tax', re.compile(r'\btax\b|taxation|transfer pricing', re.I)),
-    ('Audit', re.compile(r'audit|assurance|attest|SOX|internal control', re.I)),
-    ('Risk', re.compile(r'risk advisory|risk management|compliance|regulatory|financial crime', re.I)),
-    ('Banking', re.compile(r'commercial bank|corporate bank|credit analys|loan underwriting|underwrit|lending|banking|credit risk', re.I)),
+    ('Audit', re.compile(r'audit|assurance|attest|internal audit|SOX|forensic accounting', re.I)),
+    ('Risk', re.compile(r'risk advisory|risk management|risk intern|compliance|regulatory|financial crime|quant strats', re.I)),
+    ('Banking', re.compile(r'commercial bank|corporate bank|investment bank|credit analys|loan operations|loan underwriting|underwrit|lending|brokerage|sales and trading|capital markets|origination', re.I)),
     ('Wealth', re.compile(r'wealth|private bank|private client|financial advisor|financial planning|family office|\bRIA\b|client advisor', re.I)),
-    ('Investment', re.compile(r'investment|asset management|equity research|hedge fund|portfolio|private equity|valuation|capital markets|investment bank', re.I)),
+    ('Investment', re.compile(r'investment|asset management|equity research|hedge fund|portfolio|private equity|valuation|damages|investor relation|fund accounting|real estate debt|equity long.short', re.I)),
     ('Accounting', re.compile(r'accounting|bookkeeping|controller|controllership|financial reporting|accounts payable|accounts receivable|\bCPA\b', re.I)),
-    ('Finance', re.compile(r'financ|treasury|pricing|FP&A|financial analys|budgeting', re.I)),
-    ('Consulting', re.compile(r'consult|advisory', re.I)),
-    ('Analytics', re.compile(r'business analytics|data analy|business intelligence|business analys', re.I)),
+    ('Finance', re.compile(r'financ|treasury|pricing|FP&A|financial analys|budgeting|private credit|financial assets', re.I)),
+    ('Consulting', re.compile(r'consult|advisory|transaction services|due diligence', re.I)),
+    ('Analytics', re.compile(r'analytics|data analys|business intelligence|business analys|financial data', re.I)),
     ('Strategy', re.compile(r'corporate strategy|business strategy', re.I)),
-    ('Operations', re.compile(r'business operations|finance operations', re.I)),
+    ('Operations', re.compile(r'business operations|finance operations|fund operations', re.I)),
 ]
+# Regional priority is Atlanta / Athens, with a national US expansion.
+# Exclude clearly international locations rather than treating them as "Nationwide".
+NON_US_ONLY = re.compile(
+    r'\b(India|Singapore|Australia|New Zealand|Germany|France|Spain|Netherlands|'
+    r'United Kingdom|UK\b|England|Scotland|Ireland|China|Japan|Hong Kong|'
+    r'Pakistan|Philippines|Mexico|Brazil|Poland|Romania|Turkey|South Africa)\b', re.I)
+US_INDICATOR = re.compile(
+    r'\b(US|USA|U\.S\.|United States|America|'
+    r'Atlanta|Athens|New York|NYC|Chicago|Boston|Miami|Dallas|Denver|'
+    r'San Francisco|San Jose|Los Angeles|Torrance|Seattle|Portland|'
+    r'Houston|Austin|Washington|Philadelphia|Baltimore|Phoenix|'
+    r'Charlotte|Nashville|Indianapolis|Minneapolis|Orlando|Tampa|'
+    r'California|Colorado|Georgia|Texas|Florida|Illinois|'
+    r'Connecticut|Massachusetts|Virginia|Maryland|Minnesota|'
+    r'North Carolina|South Carolina|New Jersey|Pennsylvania|'
+    r'Arizona|Ohio|Oregon|Wisconsin|Michigan|Utah|Tennessee|'
+    r'Nevada|Missouri|Kentucky|Alabama|Kansas|Nebraska|'
+    r'WA|CA|GA|FL|NY|TX|IL|CO|MA|DC|NC|SC|NJ|PA|MN|CT|AZ)\b', re.I)
 
 def read_json(path: Path, default):
     try:
@@ -77,17 +95,23 @@ def normalize(text):
     return re.sub(r'[^a-z0-9]+', '', str(text).casefold())
 
 
-def classify_category(title, text):
-    # Mercer Advisors is a wealth management firm; broad internship copy may mention tax benefits.
-    if re.search(r'\bMercer Advisors\b', title, re.I):
+def classify_category(title, text, department=''):
+    # Prioritize the *role's* name/department, never the employer's general description.
+    title_low = title.lower()
+    if 'mercer advisors' in title_low:
         return 'Wealth'
     for label, matcher in FIELD_MATCHERS:
         if matcher.search(title):
             return label
-    # The job title takes precedence over unrelated text describing the company.
-    if not NON_FINANCE_TITLE.search(title) and re.search(r'\b(?:intern(?:ship)?|co[ -]?op|summer analyst|undergraduate associate)\b', title, re.I):
-        for label, matcher in FIELD_MATCHERS:
-            if matcher.search(text[:900]):
+    for label, matcher in FIELD_MATCHERS:
+        if department and matcher.search(department):
+            return label
+    # Catch broad titles like "HFA Internship 2027" only if the body has explicit,
+    # job-specific context. Avoid false positives from generic employer introductions.
+    if re.search(r'\b(?:intern(?:ship)?|co[ -]?op|summer analyst)\b', title, re.I):
+        for label in ('Accounting','Tax','Audit','Finance','Investment','Banking','Wealth','Risk','Analytics'):
+            matcher = next(m for name,m in FIELD_MATCHERS if name == label)
+            if matcher.search(text[:650]):
                 return label
     return None
 
@@ -147,18 +171,20 @@ def classify_area(location, remote):
     return 'Nationwide'
 
 
-def field_entry(company, board, key, title, location, body, url, posted, remote=False, salary=None):
+def field_entry(company, board, key, title, location, body, url, posted, remote=False, salary=None, department=''):
     if not INTERNSHIP.search(title) or EXCLUDE.search(title): return None
-    if not secure_url(url): return None
+    if not secure_url(url) or not key: return None
     if len(title) > 180 or len(company) > 140: return None
     if NON_FINANCE_TITLE.search(title): return None
+    if re.search(r'\b(pipeline|talent pool|future internship opportunities|open application)\b', title, re.I): return None
+    # Never add obvious non-US positions to the US board. A global/multi-office
+    # location can include other countries when at least one US location is present.
+    if NON_US_ONLY.search(location) and not US_INDICATOR.search(location) and not REMOTE.search(location):
+        return None
     area = classify_area(location, remote)
-    category = classify_category(title, body)
+    category = classify_category(title, body, department)
     if not category: return None
     season = find_season(title, body)
-    # Local and remote finance/accounting first; national 2028 investments are extras.
-    if area == 'Nationwide' and not (season == 'Summer 2028' and category in {'Wealth','Investment','Banking'}):
-        return None
     eligibility, eligibility_note = classify_eligibility(title, body)
     return {
         'id': f'feed-{board}-{key}', 'company': company, 'title': title,
@@ -177,7 +203,7 @@ def fetch_greenhouse(src):
     content = request_json(f'https://boards-api.greenhouse.io/v1/boards/{board}/jobs?content=true')
     for j in content.get('jobs', []):
         location = (j.get('location') or {}).get('name') or ''
-        yield field_entry(src['company'], board, j.get('id'), j.get('title') or '', location, clean_text(j.get('content')), j.get('absolute_url'), j.get('updated_at'))
+        yield field_entry(src['company'], board, j.get('id'), j.get('title') or '', location, clean_text(j.get('content')), j.get('absolute_url'), j.get('updated_at'), department=' / '.join(d.get('name', '') for d in j.get('departments', []) if isinstance(d, dict)))
 
 
 def fetch_lever(src):
@@ -187,7 +213,7 @@ def fetch_lever(src):
     for j in posts:
         loc = (j.get('categories') or {}).get('location') or ''
         body = (j.get('descriptionPlain') or '') + ' ' + (j.get('additionalPlain') or '')
-        yield field_entry(src['company'], board, j.get('id'), j.get('text') or '', loc, body, j.get('hostedUrl'), j.get('createdAt'))
+        yield field_entry(src['company'], board, j.get('id'), j.get('text') or '', loc, body, j.get('hostedUrl'), j.get('createdAt'), department=' / '.join(str(v) for v in ((j.get('categories') or {}).get('department'),(j.get('categories') or {}).get('team')) if v))
 
 
 def fetch_ashby(src):
@@ -196,7 +222,7 @@ def fetch_ashby(src):
     for j in data.get('jobs', []):
         compensation = j.get('compensation') or {}
         pay = compensation.get('compensationTierSummary') if isinstance(compensation, dict) else None
-        yield field_entry(src['company'], board, j.get('id') or normalize(j.get('title')), j.get('title') or '', j.get('location') or '', j.get('descriptionPlain') or clean_text(j.get('descriptionHtml')), j.get('jobUrl') or j.get('applyUrl'), j.get('publishedAt'), bool(j.get('isRemote')), pay)
+        yield field_entry(src['company'], board, j.get('id') or normalize(j.get('title')), j.get('title') or '', j.get('location') or '', j.get('descriptionPlain') or clean_text(j.get('descriptionHtml')), j.get('jobUrl') or j.get('applyUrl'), j.get('publishedAt'), bool(j.get('isRemote')), pay, department=str(j.get('department') or ''))
 
 FETCHERS = {'greenhouse': fetch_greenhouse, 'lever': fetch_lever, 'ashby': fetch_ashby}
 
@@ -248,7 +274,7 @@ def main():
             job['eligibility_note'] = 'Not present on the latest successful employer feed; may have closed. Recheck before applying.'
     # Avoid removing user-facing snapshots just because a board failed.
     existing = [j for j in existing if not (j.get('status') == 'live-feed' and NON_FINANCE_TITLE.search(j.get('title','')))]
-    existing = sorted(existing, key=lambda j: (j.get('status') != 'live-feed', j.get('company','').casefold(), j.get('title','').casefold()))[:350]
+    existing = sorted(existing, key=lambda j: (j.get('status') != 'live-feed', j.get('area') not in {'Atlanta','Athens'}, j.get('company','').casefold(), j.get('title','').casefold()))[:600]
     output = {
         'updated_at': STAMP, 'update_type': 'automated_feed_scan',
         'source_note': 'ATS feeds checked. A job appears active only when an employer feed returned it; other listings remain unverified leads. Handshake requires a UGA login and is not scraped.',
@@ -256,7 +282,7 @@ def main():
         'jobs': existing,
     }
     digest = {'updated_at': STAMP, 'added_ids': fresh, 'errors': errors,
-              'message': f'Weekly scan completed: {len(succeeded)} employer boards checked, {len(fresh)} newly discovered internships.'}
+              'message': f'Daily scan completed: {len(succeeded)} employer boards checked, {len(fresh)} newly discovered internships.'}
     (DATA/'listings.json').write_text(json.dumps(output, ensure_ascii=False, indent=2)+'\n',encoding='utf-8')
     (DATA/'listings.js').write_text('window.SCOUT_DATA = '+json.dumps(output, ensure_ascii=False,separators=(',',':'))+';\n',encoding='utf-8')
     (DATA/'latest_digest.json').write_text(json.dumps(digest, ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

@@ -57,10 +57,12 @@
     const category = $('#category').value;
     const eligibility = $('#eligibility').value;
     const gradYear = $('#gradYear').value;
+    const jobStatus = $('#jobStatus').value;
     if (q) arr = arr.filter(j => [j.title, j.company, j.location, j.category, j.season, j.eligibility_note].some(v => String(v || '').toLowerCase().includes(q)));
     if (area !== 'all') arr = arr.filter(j => getArea(j) === area);
     if (category !== 'all') arr = arr.filter(j => j.category === category);
     if (eligibility !== 'all') arr = arr.filter(j => j.eligibility === eligibility);
+    if (jobStatus !== 'all') arr = arr.filter(j => j.status === jobStatus);
     // Listings without a stated graduation year remain visible for verification.
     if (gradYear !== 'all') arr = arr.filter(j => !getGradYears(j).length || getGradYears(j).includes(gradYear));
     if (view === 'today') arr = arr.filter(isToday);
@@ -110,7 +112,7 @@
     const days = daysSince(feed.updated_at);
     const stamp = feed.updated_at ? `${dateFormat(feed.updated_at)} · ${feed.update_type === 'initial_curated_snapshot' ? 'Launch snapshot' : 'Automated feed scan'}` : 'No scan timestamp';
     $('#lastSync').textContent = `Last feed update: ${stamp}`;
-    $('#feedHealth').textContent = days > 2 ? 'Daily update is overdue. Enable/check the scheduled workflow; some leads may be stale.' : 'Eligibility and active hiring must be checked on the employer application.';
+    $('#feedHealth').textContent = days > 2 ? 'Daily update is overdue. Enable/check the scheduled workflow; some leads may be stale.' : 'Showing employer-feed openings and older leads. Always verify eligibility and closing dates.';
     renderDigest();
   }
   function renderDigest() {
@@ -126,7 +128,7 @@
   }
   function setView(next) { view = next; render(); if (next !== 'all') $('#board').scrollIntoView({behavior:'smooth',block:'start'}); }
   $$('.tab, .nav-link').forEach(b => b.addEventListener('click',()=>setView(b.dataset.view)));
-  ['search','area','category','gradYear','eligibility','sort'].forEach(id => $('#'+id).addEventListener(id==='search'?'input':'change',render));
+  ['search','area','category','gradYear','jobStatus','eligibility','sort'].forEach(id => $('#'+id).addEventListener(id==='search'?'input':'change',render));
   $('#showAll').addEventListener('click',()=>setView('all'));
   $('#results').addEventListener('click',e => {
     const btn = e.target.closest('button[data-action]'); if (!btn) return;
