@@ -4,14 +4,17 @@
   const $$ = selector => [...document.querySelectorAll(selector)];
   const STORAGE = 'scout_uga_v1';
   const today = () => new Date().toISOString().slice(0, 10);
-  const emptyState = { saved: [], tracking: {}, notes: {}, custom: [] };
+  const emptyState = { saved: [], tracking: {}, notes: {}, custom: [], _revisions: {} };
   let local = { ...emptyState };
   try { const saved = JSON.parse(localStorage.getItem(STORAGE) || '{}'); local = { ...emptyState, ...saved }; } catch (_) {}
   local.saved = Array.isArray(local.saved) ? local.saved : [];
   local.custom = Array.isArray(local.custom) ? local.custom : [];
   local.tracking = local.tracking && typeof local.tracking === 'object' ? local.tracking : {};
   local.notes = local.notes && typeof local.notes === 'object' ? local.notes : {};
-  const persist = () => { try { localStorage.setItem(STORAGE, JSON.stringify(local)); } catch (_) {} };
+  local._revisions = local._revisions && typeof local._revisions === 'object' && !Array.isArray(local._revisions) ? local._revisions : {};
+  const saveLocal = () => { try { localStorage.setItem(STORAGE, JSON.stringify(local)); } catch (_) {} };
+  const persist = () => { saveLocal(); window.ScoutCloud?.scheduleSync?.(); };
+  const mark = (...keys) => { const stamp = Date.now(); keys.forEach(key => { local._revisions[key] = stamp; }); persist(); };
   let feed = window.SCOUT_DATA || { jobs: [], updated_at: null };
   let digest = { added_ids: [], errors: [], message: 'Weekly scan not run yet.' };
   let view = 'all';
@@ -23,6 +26,7 @@
   const dateFormat = s => { if (!s) return 'Not listed'; const d = new Date(s.includes('T') ? s : `${s}T12:00:00`); return Number.isNaN(+d) ? 'Not listed' : d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }); };
   const daysSince = s => { if (!s) return Infinity; const d = Date.parse(s); return Number.isNaN(d) ? Infinity : Math.floor((Date.now() - d) / 86400000); };
   const isFresh = j => daysSince(j.first_seen) >= 0 && daysSince(j.first_seen) < 7;
+  const isToday = j => String(j.first_seen || '') === today();
   const getArea = j => j.area || (/(athens|watkinsville|bogart)/i.test(j.location) ? 'Athens' : /(atlanta|alpharetta|brookhaven|sandy springs|marietta|conyers|roswell|dunwoody|peachtree|norcross|duluth|decatur|smyrna|college park)/i.test(j.location) ? 'Atlanta' : /remote/i.test(j.location) ? 'Remote' : 'Nationwide');
   const hasApplied = id => ['applied','interview','offer','rejected'].includes(local.tracking[id]);
   const getGradYears = j => {
@@ -59,6 +63,7 @@
     if (eligibility !== 'all') arr = arr.filter(j => j.eligibility === eligibility);
     // Listings without a stated graduation year remain visible for verification.
     if (gradYear !== 'all') arr = arr.filter(j => !getGradYears(j).length || getGradYears(j).includes(gradYear));
+    if (view === 'today') arr = arr.filter(isToday);
     if (view === 'new') arr = arr.filter(isFresh);
     if (view === 'saved') arr = arr.filter(j => local.saved.includes(j.id));
     if (view === 'applied') arr = arr.filter(j => local.tracking[j.id] && local.tracking[j.id] !== 'none');
@@ -95,7 +100,7 @@
     $('#metricSaved').textContent = jobs.filter(j => local.saved.includes(j.id)).length;
     $('#metricApplied').textContent = jobs.filter(j => hasApplied(j.id)).length;
     $('#navAllCount').textContent = jobs.length;
-    const headers = { all: ['Worth a closer look.','Search, shortlist, and track every opening in one place.'], new: ['Just added to Scout.','Discovered in the last seven days, not necessarily published this week.'], saved: ['Your shortlist.','The listings you bookmarked for later.'], applied: ['Your application pipeline.','Keep track of submissions, interviews, and next steps.'] };
+    const headers = { all: ['Worth a closer look.','Search, shortlist, and track every opening in one place.'], today: ['Added today.','Newly discovered by Scout today, not necessarily posted today.'], new: ['Just added to Scout.','Discovered in the last seven days, not necessarily published this week.'], saved: ['Your shortlist.','The listings you bookmarked for later.'], applied: ['Your application pipeline.','Keep track of submissions, interviews, and next steps.'] };
     $('#boardTitle').innerHTML = escaped(headers[view][0].slice(0,-1)) + '<span>.</span>';
     $('#boardSubtitle').textContent = headers[view][1];
     $$('.tab, .nav-link').forEach(b => { const on = b.dataset.view === view; b.classList.toggle('active',on); b.classList.toggle('selected',on); });
@@ -105,7 +110,7 @@
     const days = daysSince(feed.updated_at);
     const stamp = feed.updated_at ? `${dateFormat(feed.updated_at)} · ${feed.update_type === 'initial_curated_snapshot' ? 'Launch snapshot' : 'Automated feed scan'}` : 'No scan timestamp';
     $('#lastSync').textContent = `Last feed update: ${stamp}`;
-    $('#feedHealth').textContent = days > 9 ? 'Update is overdue. Enable/check the scheduled workflow; some leads may be stale.' : 'Eligibility and active hiring must be checked on the employer application.';
+    $('#feedHealth').textContent = days > 2 ? 'Daily update is overdue. Enable/check the scheduled workflow; some leads may be stale.' : 'Eligibility and active hiring must be checked on the employer application.';
     renderDigest();
   }
   function renderDigest() {
@@ -126,23 +131,38 @@
   $('#results').addEventListener('click',e => {
     const btn = e.target.closest('button[data-action]'); if (!btn) return;
     const id = btn.dataset.id;
-    if (btn.dataset.action === 'save') { local.saved = local.saved.includes(id) ? local.saved.filter(s => s !== id) : [...local.saved,id]; persist(); render(); }
+    if (btn.dataset.action === 'save') { local.saved = local.saved.includes(id) ? local.saved.filter(s => s !== id) : [...local.saved,id]; mark('saved:'+id); render(); }
     if (btn.dataset.action === 'notes') { notesId = id; const j = getJobs().find(j => j.id === id); $('#notesTitle').textContent = `${j?.company || 'Listing'} notes`; $('#notesText').value = local.notes[id] || ''; $('#notesDialog').showModal(); }
-    if (btn.dataset.action === 'delete' && confirm('Delete this custom listing?')) { local.custom = local.custom.filter(j => j.id !== id); local.saved = local.saved.filter(s => s !== id); delete local.tracking[id]; delete local.notes[id]; persist(); render(); }
+    if (btn.dataset.action === 'delete' && confirm('Delete this custom listing?')) { local.custom = local.custom.filter(j => j.id !== id); local.saved = local.saved.filter(s => s !== id); delete local.tracking[id]; delete local.notes[id]; mark('custom:'+id,'saved:'+id,'tracking:'+id,'notes:'+id); render(); }
   });
-  $('#results').addEventListener('change',e => { const sel=e.target.closest('select[data-status-id]'); if(!sel)return; if(sel.value==='none') delete local.tracking[sel.dataset.statusId]; else local.tracking[sel.dataset.statusId]=sel.value; persist(); render(); });
+  $('#results').addEventListener('change',e => { const sel=e.target.closest('select[data-status-id]'); if(!sel)return; if(sel.value==='none') delete local.tracking[sel.dataset.statusId]; else local.tracking[sel.dataset.statusId]=sel.value; mark('tracking:'+sel.dataset.statusId); render(); });
   const showAdd = () => $('#jobDialog').showModal();
   $('#addManual').addEventListener('click',showAdd); $('#addManualHero').addEventListener('click',showAdd);
   $('#closeDialog').addEventListener('click',()=>$('#jobDialog').close()); $('#cancelDialog').addEventListener('click',()=>$('#jobDialog').close());
-  $('#jobForm').addEventListener('submit',e => { e.preventDefault(); const v = Object.fromEntries(new FormData(e.target).entries()); const url = secureUrl(v.url); if(!url){alert('Please enter a valid HTTP or HTTPS link.');return;} const location=v.location.trim(); const j={id:'custom-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,7),company:v.company.trim(),title:v.title.trim(),location,area:/(athens|watkinsville|bogart)/i.test(location)?'Athens':/(atlanta|alpharetta|marietta|roswell|brookhaven|sandy springs)/i.test(location)?'Atlanta':/remote/i.test(location)?'Remote':'Nationwide',category:v.category,season:'Not specified',eligibility:'unknown',eligibility_note:'Personal listing — verify role eligibility on the employer website',url,source:'Manually added',status:'manual',first_seen:today(),deadline:v.deadline||null};local.custom.unshift(j);persist();e.target.reset();$('#jobDialog').close();setView('all'); });
+  $('#jobForm').addEventListener('submit',e => { e.preventDefault(); const v = Object.fromEntries(new FormData(e.target).entries()); const url = secureUrl(v.url); if(!url){alert('Please enter a valid HTTP or HTTPS link.');return;} const location=v.location.trim(); const j={id:'custom-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,7),company:v.company.trim(),title:v.title.trim(),location,area:/(athens|watkinsville|bogart)/i.test(location)?'Athens':/(atlanta|alpharetta|marietta|roswell|brookhaven|sandy springs)/i.test(location)?'Atlanta':/remote/i.test(location)?'Remote':'Nationwide',category:v.category,season:'Not specified',eligibility:'unknown',eligibility_note:'Personal listing — verify role eligibility on the employer website',url,source:'Manually added',status:'manual',first_seen:today(),deadline:v.deadline||null};local.custom.unshift(j);mark('custom:'+j.id);e.target.reset();$('#jobDialog').close();setView('all'); });
   $('#closeNotes').addEventListener('click',()=>$('#notesDialog').close()); $('#cancelNotes').addEventListener('click',()=>$('#notesDialog').close());
-  $('#saveNotes').addEventListener('click',()=>{ if(notesId){local.notes[notesId]=$('#notesText').value.trim();persist();}$('#notesDialog').close(); });
+  $('#saveNotes').addEventListener('click',()=>{ if(notesId){local.notes[notesId]=$('#notesText').value.trim();mark('notes:'+notesId);}$('#notesDialog').close(); });
   $('#exportCsv').addEventListener('click',()=>{
     const headings=['Company','Title','Location','Field','Season','Graduation Years Mentioned','Eligibility','Application Status','URL','Deadline','Notes','Source'];
     const rows=getJobs().map(j=>[j.company,j.title,j.location,j.category,j.season,getGradYears(j).join(';'),j.eligibility,local.tracking[j.id]||'not started',j.url,j.deadline||'',local.notes[j.id]||'',j.source]);
     const cell=s=>{let v=String(s??''); if (/^[=+@\-\t\r]/.test(v))v="'"+v; return '"'+v.replace(/"/g,'""')+'"';};
     const csv='\uFEFF'+[headings,...rows].map(r=>r.map(cell).join(',')).join('\r\n'); const blob=new Blob([csv],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`scout-internships-${today()}.csv`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),500);
   });
+  // Cloud sync is optional. Keep legacy localStorage key to preserve existing progress.
+  window.ScoutBridge = {
+    getProgress() { return JSON.parse(JSON.stringify(local)); },
+    setProgress(next) {
+      if (!next || typeof next !== 'object' || Array.isArray(next)) return;
+      local = { ...emptyState, ...next };
+      local.saved = Array.isArray(local.saved) ? local.saved : [];
+      local.custom = Array.isArray(local.custom) ? local.custom : [];
+      local.tracking = local.tracking && typeof local.tracking === 'object' ? local.tracking : {};
+      local.notes = local.notes && typeof local.notes === 'object' ? local.notes : {};
+      local._revisions = local._revisions && typeof local._revisions === 'object' ? local._revisions : {};
+      saveLocal(); render();
+    },
+    reset() { local = { saved: [], tracking: {}, notes: {}, custom: [], _revisions: {} }; saveLocal(); render(); }
+  };
   render();
   if (location.protocol.startsWith('http')) {
     Promise.allSettled([fetch('./data/listings.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(`HTTP ${r.status}`);return r.json();}),fetch('./data/latest_digest.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(`HTTP ${r.status}`);return r.json();})]).then(([a,b])=>{if(a.status==='fulfilled' && Array.isArray(a.value.jobs))feed=a.value;if(b.status==='fulfilled')digest=b.value;render();});
