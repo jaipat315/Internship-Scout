@@ -24,19 +24,24 @@ TODAY = NOW.date().isoformat()
 
 INTERNSHIP = re.compile(r'\b(intern(ship)?|summer analyst|co[ -]?op|undergraduate associate)\b', re.I)
 EXCLUDE = re.compile(r'\b(MBA|Ph\.?D\.?|postdoc|graduate internship|master.s student)\b', re.I)
+# Avoid tagging technical internships as Finance just because they are at a fintech.
+NON_FINANCE_TITLE = re.compile(r'\b(software engineer(?:ing)?|frontend|backend|iOS engineer|android engineer|applied scientist|machine learning|devops|site reliability|graphic design|UX design|product designer|data engineer|hardware engineer)\b', re.I)
 ATL = re.compile(r'atlanta|alpharetta|sandy springs|brookhaven|marietta|buckhead|dunwoody|roswell|decatur|smyrna|norcross|duluth|johns creek|kennesaw|peachtree|chamblee|conyers|college park|suwanee|vinings|norcross|lawrenceville|tyrone|woodstock|acworth|cumming', re.I)
 ATH = re.compile(r'athens|watkinsville|bogart|oconee|statham|winterville', re.I)
 REMOTE = re.compile(r'\bremote\b|work from anywhere', re.I)
 FIELD_MATCHERS = [
+    ('Tax', re.compile(r'\btax\b|taxation|transfer pricing', re.I)),
+    ('Audit', re.compile(r'audit|assurance|attest|SOX|internal control', re.I)),
+    ('Risk', re.compile(r'risk advisory|risk management|compliance|regulatory|financial crime', re.I)),
+    ('Banking', re.compile(r'commercial bank|corporate bank|credit analys|loan underwriting|underwrit|lending|banking|credit risk', re.I)),
     ('Wealth', re.compile(r'wealth|private bank|private client|financial advisor|financial planning|family office|\bRIA\b|client advisor', re.I)),
     ('Investment', re.compile(r'investment|asset management|equity research|hedge fund|portfolio|private equity|valuation|capital markets|investment bank', re.I)),
-    ('Accounting', re.compile(r'accounting|audit|tax |controllership', re.I)),
-    ('Finance', re.compile(r'financ|treasury|underwrit|risk management|credit analyst|pricing|FP&A', re.I)),
+    ('Accounting', re.compile(r'accounting|bookkeeping|controller|controllership|financial reporting|accounts payable|accounts receivable|\bCPA\b', re.I)),
+    ('Finance', re.compile(r'financ|treasury|pricing|FP&A|financial analys|budgeting', re.I)),
     ('Consulting', re.compile(r'consult|advisory', re.I)),
-    ('Strategy', re.compile(r'strategy|strategic|product management', re.I)),
-    ('Analytics', re.compile(r'analytics|data science|data analyst|business intelligence', re.I)),
-    ('Marketing', re.compile(r'marketing|brand|social media|advertising', re.I)),
-    ('Operations', re.compile(r'operations|supply chain|logistics|business development', re.I)),
+    ('Analytics', re.compile(r'business analytics|data analy|business intelligence|business analys', re.I)),
+    ('Strategy', re.compile(r'corporate strategy|business strategy', re.I)),
+    ('Operations', re.compile(r'business operations|finance operations', re.I)),
 ]
 
 def read_json(path: Path, default):
@@ -74,10 +79,24 @@ def normalize(text):
 
 def classify_category(title, text):
     for label, matcher in FIELD_MATCHERS:
-        if matcher.search(title): return label
-    for label, matcher in FIELD_MATCHERS:
-        if matcher.search(text[:2500]): return label
-    return 'Other'
+        if matcher.search(title):
+            return label
+    # The job title takes precedence over unrelated text describing the company.
+    if not NON_FINANCE_TITLE.search(title) and re.search(r'\b(?:intern(?:ship)?|co[ -]?op|summer analyst|undergraduate associate)\b', title, re.I):
+        for label, matcher in FIELD_MATCHERS:
+            if matcher.search(text[:900]):
+                return label
+    return None
+
+
+def graduation_years(title, body):
+    years = set()
+    text = title + ' ' + body
+    for m in re.finditer(r'\b20(?:27|28|29|30|31)\b', text):
+        ctx = text[max(0, m.start()-75):min(len(text), m.end()+75)]
+        if re.search(r'graduat|class of|degree complet|degree conferr', ctx, re.I):
+            years.add(int(m.group(0)))
+    return sorted(years)
 
 
 def classify_eligibility(title: str, body: str):
@@ -100,11 +119,11 @@ def classify_eligibility(title: str, body: str):
 
 
 def find_season(title, text):
-    sample = f'{title} {text[:350]}'
-    m = re.search(r'\b(20(?:27|28|29))\b', title)
-    if not m: m = re.search(r'\bsummer\s*(20(?:27|28|29))\b', sample, re.I)
-    if m:
-        return f'Summer {m.group(1)}'
+    sample = f'{title} {text[:180]}'
+    m = re.search(r'\b(summer|spring|fall|winter)\s*(20(?:26|27|28|29|30))\b', sample, re.I)
+    if m: return f'{m.group(1).title()} {m.group(2)}'
+    m = re.search(r'\b(20(?:27|28|29|30))\s+(summer|spring|fall|winter)\b', sample, re.I)
+    if m: return f'{m.group(2).title()} {m.group(1)}'
     return 'Not specified'
 
 
@@ -129,13 +148,13 @@ def field_entry(company, board, key, title, location, body, url, posted, remote=
     if not INTERNSHIP.search(title) or EXCLUDE.search(title): return None
     if not secure_url(url): return None
     if len(title) > 180 or len(company) > 140: return None
+    if NON_FINANCE_TITLE.search(title): return None
     area = classify_area(location, remote)
     category = classify_category(title, body)
+    if not category: return None
     season = find_season(title, body)
-    # Local internships plus remote roles, or nationally relevant 2028 investments.
-    if area == 'Nationwide' and not (season == 'Summer 2028' and category in {'Wealth','Investment'}):
-        return None
-    if area == 'Remote' and category not in {'Wealth','Investment','Finance','Accounting','Strategy','Analytics','Consulting'}:
+    # Local and remote finance/accounting first; national 2028 investments are extras.
+    if area == 'Nationwide' and not (season == 'Summer 2028' and category in {'Wealth','Investment','Banking'}):
         return None
     eligibility, eligibility_note = classify_eligibility(title, body)
     return {
@@ -143,6 +162,7 @@ def field_entry(company, board, key, title, location, body, url, posted, remote=
         'location': location or ('Remote' if remote else 'Location unspecified'),
         'area': area, 'category': category, 'season': season,
         'eligibility': eligibility, 'eligibility_note': eligibility_note,
+        'graduation_years': graduation_years(title, body),
         'salary': salary, 'url': url, 'source': f'{company} employer feed',
         'source_board': board, 'status': 'live-feed', 'first_seen': TODAY,
         'posted_at': parse_posted(posted), 'deadline': None
@@ -189,7 +209,7 @@ def main():
     fresh = []
     for src in sources:
         typ, slug = src.get('type'), src.get('board')
-        if typ not in FETCHERS or not re.fullmatch(r'[a-z0-9_-]+', str(slug)):
+        if typ not in FETCHERS or not re.fullmatch(r'[a-zA-Z0-9_-]+', str(slug)):
             errors.append(f'Invalid source configuration: {src.get("company", "unknown")}');continue
         try:
             results = list(FETCHERS[typ](src))
@@ -224,6 +244,7 @@ def main():
             job['status'] = 'not-seen'
             job['eligibility_note'] = 'Not present on the latest successful employer feed; may have closed. Recheck before applying.'
     # Avoid removing user-facing snapshots just because a board failed.
+    existing = [j for j in existing if not (j.get('status') == 'live-feed' and NON_FINANCE_TITLE.search(j.get('title','')))]
     existing = sorted(existing, key=lambda j: (j.get('status') != 'live-feed', j.get('company','').casefold(), j.get('title','').casefold()))[:350]
     output = {
         'updated_at': STAMP, 'update_type': 'automated_feed_scan',
