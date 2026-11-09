@@ -72,6 +72,18 @@ The login automatically merges existing browser records into the account. Change
 
 A public key is safe to ship **only after Row Level Security is enabled and tested**. Do not store sensitive personal data beyond application notes. Each user's account is separate; a public link does not share another student's private notes.
 
+## Turn on sign-in for classmates (final owner setup)
+
+The Supabase database and private row-level security are now created in project **UGA Internship Scout** (`mjeymsyodazxnfxupwgc`). The GitHub Pages app already contains the project's **publishable** key, and no secret/service key was put in GitHub.
+
+**Before friends can use email sign-in, the site owner must complete two Supabase dashboard settings:**
+
+1. Go to [Auth URL Configuration](https://supabase.com/dashboard/project/mjeymsyodazxnfxupwgc/auth/url-configuration). Set **Site URL** to `https://jaipat315.github.io/Internship-Scout/`. In **Redirect URLs**, add that same exact URL and save. Without this, email links may incorrectly redirect to localhost.
+2. Go to [Auth SMTP Settings](https://supabase.com/dashboard/project/mjeymsyodazxnfxupwgc/auth/smtp). Configure a trusted external SMTP provider you control. **Supabase's built-in mail provider is only for tests, limits the project to two emails per hour, and restricts delivery to project team addresses. It cannot serve your friends until custom SMTP is enabled.** Keep SMTP passwords in the Supabase dashboard, not GitHub.
+3. Open [Scout](https://jaipat315.github.io/Internship-Scout/), choose **Save progress**, request your email link, and verify that saving an application on one browser appears when you sign in on another. Test two different accounts and confirm they cannot view one another's private progress.
+
+The app will continue running in guest mode if SMTP setup has not been completed. Use **Download backup** and **Restore backup** to transfer data safely in the meantime.
+
 ## Privacy, safety, and cost
 
 - Account login is optional, only after you configure Supabase. No private/service keys in code.
