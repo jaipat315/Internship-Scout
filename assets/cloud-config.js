@@ -1,6 +1,6 @@
-// PUBLIC configuration only. Leave empty until Supabase is set up.
-// Never place a Supabase service_role or secret key in this file.
+// Scout browser-safe public project settings. Row-level security isolates each student's data.
+// Never add a service-role key or Supabase secret key to this public GitHub repository.
 window.SCOUT_CLOUD_CONFIG = {
-  url: '',
-  publishableKey: ''
+  url: "https://mjeymsyodazxnfxupwgc.supabase.co",
+  publishableKey: "sb_publishable_TRieIz6iO7YWpL9bXyD4Bw_r-BQLp7m"
 };
