@@ -25,7 +25,7 @@ TODAY = NOW.date().isoformat()
 INTERNSHIP = re.compile(r'\b(intern(ship|ships)?|summer analyst|summer associate|co[ -]?op|undergraduate associate)\b', re.I)
 EXCLUDE = re.compile(r'\b(MBA|Ph\.?D\.?|postdoc|graduate internship|master.s student)\b', re.I)
 # Avoid tagging technical internships as Finance just because they are at a fintech.
-NON_FINANCE_TITLE = re.compile(r'\b(software engineer(?:ing)?|frontend|backend|iOS engineer|android engineer|applied scientist|machine learning|devops|site reliability|graphic design|UX design|product designer|data engineer|hardware engineer|civil engineer|electrical engineer|mechanical engineer|construction engineering|biology|biochemistry|laboratory|nursing|pharmacy|engineering sciences|product management|cybersecurity)\b', re.I)
+NON_FINANCE_TITLE = re.compile(r'\b(software engineer(?:ing)?|frontend|backend|iOS engineer|android engineer|applied scientist|machine learning|devops|site reliability|graphic design|UX design|product designer|data engineer|hardware engineer|civil engineer|electrical engineer|mechanical engineer|construction engineering|biology|biochemistry|laboratory|nursing|pharmacy|engineering sciences|product management|cybersecurity|software internship|engineering intern|HR intern|human resources|people operations|talent acquisition|recruiting intern|product intern|product manager|technology intern|technology internship|digital infrastructure intern|IT.product|IT intern)\b', re.I)
 ATL = re.compile(r'atlanta|alpharetta|sandy springs|brookhaven|marietta|buckhead|dunwoody|roswell|decatur|smyrna|norcross|duluth|johns creek|kennesaw|peachtree|chamblee|conyers|college park|suwanee|vinings|norcross|lawrenceville|tyrone|woodstock|acworth|cumming', re.I)
 ATH = re.compile(r'athens|watkinsville|bogart|oconee|statham|winterville', re.I)
 REMOTE = re.compile(r'\bremote\b|work from anywhere', re.I)
@@ -35,8 +35,8 @@ FIELD_MATCHERS = [
     ('Risk', re.compile(r'risk advisory|risk management|risk intern|compliance|regulatory|financial crime|quant strats', re.I)),
     ('Banking', re.compile(r'commercial bank|corporate bank|investment bank|credit analys|loan operations|loan underwriting|underwrit|lending|brokerage|sales and trading|capital markets|origination', re.I)),
     ('Wealth', re.compile(r'wealth|private bank|private client|financial advisor|financial planning|family office|\bRIA\b|client advisor', re.I)),
-    ('Investment', re.compile(r'investment|asset management|equity research|hedge fund|portfolio|private equity|valuation|damages|investor relation|fund accounting|real estate debt|equity long.short', re.I)),
     ('Accounting', re.compile(r'accounting|bookkeeping|controller|controllership|financial reporting|accounts payable|accounts receivable|\bCPA\b', re.I)),
+    ('Investment', re.compile(r'investment|asset management|equity research|hedge fund|portfolio|private equity|valuation|damages|investor relation|fund accounting|real estate debt|equity long.short|quantitative research|quant research|fundamental research', re.I)),
     ('Finance', re.compile(r'financ|treasury|pricing|FP&A|financial analys|budgeting|private credit|financial assets', re.I)),
     ('Consulting', re.compile(r'consult|advisory|transaction services|due diligence', re.I)),
     ('Analytics', re.compile(r'analytics|data analys|business intelligence|business analys|financial data', re.I)),
@@ -48,7 +48,8 @@ FIELD_MATCHERS = [
 NON_US_ONLY = re.compile(
     r'\b(India|Singapore|Australia|New Zealand|Germany|France|Spain|Netherlands|'
     r'United Kingdom|UK\b|England|Scotland|Ireland|China|Japan|Hong Kong|'
-    r'Pakistan|Philippines|Mexico|Brazil|Poland|Romania|Turkey|South Africa)\b', re.I)
+    r'Pakistan|Philippines|Mexico|Brazil|Poland|Romania|Turkey|South Africa|'
+    r'Shanghai|London|Toronto|Vancouver|Amsterdam|Dublin|Berlin|Paris|Mumbai|Delhi)\b', re.I)
 US_INDICATOR = re.compile(
     r'\b(US|USA|U\.S\.|United States|America|'
     r'Atlanta|Athens|New York|NYC|Chicago|Boston|Miami|Dallas|Denver|'
@@ -167,7 +168,8 @@ def parse_posted(value):
 def classify_area(location, remote):
     if ATH.search(location): return 'Athens'
     if ATL.search(location): return 'Atlanta'
-    if remote or REMOTE.search(location): return 'Remote'
+    if REMOTE.search(location): return 'Remote'
+    if remote and (not location.strip() or location.casefold().strip() in {'united states', 'us', 'usa'}): return 'Remote'
     return 'Nationwide'
 
 
@@ -200,7 +202,12 @@ def field_entry(company, board, key, title, location, body, url, posted, remote=
 
 def fetch_greenhouse(src):
     board = urllib.parse.quote(src['board'], safe='')
-    content = request_json(f'https://boards-api.greenhouse.io/v1/boards/{board}/jobs?content=true')
+    try:
+        content = request_json(f'https://boards-api.greenhouse.io/v1/boards/{board}/jobs?content=true')
+    except json.JSONDecodeError:
+        # Oversized employer feeds can exceed our JSON read limit when HTML descriptions
+        # are included. Retry just the titles, departments, locations and links.
+        content = request_json(f'https://boards-api.greenhouse.io/v1/boards/{board}/jobs?content=false')
     for j in content.get('jobs', []):
         location = (j.get('location') or {}).get('name') or ''
         yield field_entry(src['company'], board, j.get('id'), j.get('title') or '', location, clean_text(j.get('content')), j.get('absolute_url'), j.get('updated_at'), department=' / '.join(d.get('name', '') for d in j.get('departments', []) if isinstance(d, dict)))
@@ -273,7 +280,14 @@ def main():
             job['status'] = 'not-seen'
             job['eligibility_note'] = 'Not present on the latest successful employer feed; may have closed. Recheck before applying.'
     # Avoid removing user-facing snapshots just because a board failed.
-    existing = [j for j in existing if not (j.get('status') == 'live-feed' and NON_FINANCE_TITLE.search(j.get('title','')))]
+    existing = [j for j in existing if not (
+        j.get('status') in {'live-feed', 'not-seen'} and (
+            NON_FINANCE_TITLE.search(j.get('title', '')) or
+            (NON_US_ONLY.search(j.get('location', '')) and
+             not US_INDICATOR.search(j.get('location', '')) and
+             not REMOTE.search(j.get('location', '')))
+        )
+    )]
     existing = sorted(existing, key=lambda j: (j.get('status') != 'live-feed', j.get('area') not in {'Atlanta','Athens'}, j.get('company','').casefold(), j.get('title','').casefold()))[:600]
     output = {
         'updated_at': STAMP, 'update_type': 'automated_feed_scan',

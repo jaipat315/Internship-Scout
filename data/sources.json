@@ -184,5 +184,11 @@
     "type": "ashby",
     "board": "scientech-research",
     "location_scope": "United States"
+  },
+  {
+    "company": "Astera Labs Early Career 2027",
+    "type": "greenhouse",
+    "board": "asteraearlycareer2027",
+    "location_scope": "United States"
   }
 ]
