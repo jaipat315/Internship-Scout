@@ -1,14 +1,6 @@
 {
-  "updated_at": "2026-11-09T23:55:58Z",
-  "added_ids": [
-    "feed-andurilindustries-5271672007",
-    "feed-andurilindustries-5271826007",
-    "feed-andurilindustries-5269977007",
-    "feed-andurilindustries-5271686007",
-    "feed-amwinsoffline-4417571009",
-    "feed-amwinsoffline-4467158009",
-    "feed-jencapinc-5198365007"
-  ],
+  "updated_at": "2026-11-09T23:57:10Z",
+  "added_ids": [],
   "errors": [],
-  "message": "Daily scan completed: 34 employer boards checked, 7 newly discovered internships."
+  "message": "Daily scan completed: 34 employer boards checked, 0 newly discovered internships."
 }
