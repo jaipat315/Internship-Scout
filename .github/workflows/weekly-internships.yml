@@ -1,4 +1,4 @@
-name: Scout Weekly Internship Scan
+name: Scout Daily Internship Scan
 
 on:
   push:
@@ -6,8 +6,9 @@ on:
       - "scripts/update_jobs.py"
       - "data/sources.json"
   schedule:
-    # 14:00 UTC = 9:00 AM EST / 10:00 AM EDT on Mondays.
-    - cron: '0 14 * * 1'
+    # Every day at 8:17 AM Eastern (DST-aware); non-hourly minute reduces queue contention.
+    - cron: '17 8 * * *'
+      timezone: 'America/New_York'
   workflow_dispatch:
 
 permissions:
