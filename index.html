@@ -55,7 +55,17 @@
       <p>Signed in as <strong id="cloudUserEmail"></strong></p>
       <div class="modal-actions"><button id="cloudRefresh" class="btn btn-outline" type="button">Sync now</button><button id="cloudSignOut" class="btn btn-dark" type="button">Sign out</button></div>
     </div>
-    <p id="cloudSetupNote">Until account sync is activated, your progress stays only in this browser. Export CSV backups regularly.</p>
+    <p id="cloudSetupNote">Until account sync is activated, progress stays in this browser. You can download a private backup below and restore it on another device.</p>
+    <div class="progress-backup">
+      <div class="progress-backup-title">Backup your application tracker</div>
+      <p>Save your bookmarks, application stages, notes, and custom listings as a JSON backup. The file is private to you.</p>
+      <div class="progress-backup-actions">
+        <button type="button" class="btn btn-outline" id="downloadBackup">Download backup</button>
+        <button type="button" class="btn btn-outline" id="importBackup">Restore backup</button>
+      </div>
+      <input id="backupFile" type="file" accept=".json,application/json" hidden>
+      <p id="backupFeedback" role="status" aria-live="polite"></p>
+    </div>
     <div id="cloudFeedback" role="status" aria-live="polite"></div>
   </dialog>
   <script src="data/listings.js"></script>

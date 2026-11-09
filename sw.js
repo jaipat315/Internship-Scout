@@ -1,4 +1,4 @@
-const CACHE = 'scout-static-v3';
+const CACHE = 'scout-static-v4';
 const ASSETS = ['./','./index.html','./assets/style.css','./assets/app.js','./assets/icon.svg','./data/listings.js','./assets/cloud-config.js','./assets/cloud.js','./manifest.webmanifest'];
 self.addEventListener('install', event => event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)).then(() => self.skipWaiting())));
 self.addEventListener('activate', event => event.waitUntil(Promise.all([

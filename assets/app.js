@@ -142,6 +142,53 @@
   $('#jobForm').addEventListener('submit',e => { e.preventDefault(); const v = Object.fromEntries(new FormData(e.target).entries()); const url = secureUrl(v.url); if(!url){alert('Please enter a valid HTTP or HTTPS link.');return;} const location=v.location.trim(); const j={id:'custom-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,7),company:v.company.trim(),title:v.title.trim(),location,area:/(athens|watkinsville|bogart)/i.test(location)?'Athens':/(atlanta|alpharetta|marietta|roswell|brookhaven|sandy springs)/i.test(location)?'Atlanta':/remote/i.test(location)?'Remote':'Nationwide',category:v.category,season:'Not specified',eligibility:'unknown',eligibility_note:'Personal listing — verify role eligibility on the employer website',url,source:'Manually added',status:'manual',first_seen:today(),deadline:v.deadline||null};local.custom.unshift(j);mark('custom:'+j.id);e.target.reset();$('#jobDialog').close();setView('all'); });
   $('#closeNotes').addEventListener('click',()=>$('#notesDialog').close()); $('#cancelNotes').addEventListener('click',()=>$('#notesDialog').close());
   $('#saveNotes').addEventListener('click',()=>{ if(notesId){local.notes[notesId]=$('#notesText').value.trim();mark('notes:'+notesId);}$('#notesDialog').close(); });
+  // Full JSON backup preserves every tracked job, even if it disappears from the shared job feed.
+  $('#downloadBackup').addEventListener('click',()=>{
+    const data = { app: 'scout-uga', version: 1, exported_at: new Date().toISOString(),
+      progress: window.ScoutBridge.getProgress() };
+    const url = URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));
+    const a = document.createElement('a');
+    a.href = url; a.download = 'scout-private-progress-'+today()+'.json';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),1500);
+    $('#backupFeedback').textContent = 'Private backup downloaded. Keep this file secure—it includes application notes.';
+  });
+  $('#importBackup').addEventListener('click',()=>$('#backupFile').click());
+  $('#backupFile').addEventListener('change',async e=>{
+    const file = e.target.files?.[0];
+    e.target.value = '';
+    if(!file)return;
+    if(file.size > 1_000_000){ $('#backupFeedback').textContent='Backup is too large (maximum 1 MB).';return; }
+    try {
+      const doc=JSON.parse(await file.text());
+      if(doc?.app!=='scout-uga'||doc.version!==1||!doc.progress||typeof doc.progress!=='object'||Array.isArray(doc.progress)) {
+        throw new Error('This is not a Scout JSON progress backup.');
+      }
+      const raw=doc.progress;
+      if(!Array.isArray(raw.saved)||!Array.isArray(raw.custom)||!raw.tracking||typeof raw.tracking!=='object'||!raw.notes||typeof raw.notes!=='object') {
+        throw new Error('This Scout backup is missing required fields.');
+      }
+      if(raw.saved.length>3000||raw.custom.length>1000||Object.keys(raw.notes).length>3000||Object.keys(raw.tracking).length>3000) {
+        throw new Error('This backup exceeds allowed limits.');
+      }
+      const cleaned = {
+        saved: [...new Set(raw.saved.filter(x=>typeof x==='string' && x.length<180))],
+        tracking: Object.fromEntries(Object.entries(raw.tracking).filter(([k,v])=>
+          k.length<180 && ['planning','applied','interview','offer','rejected'].includes(v))),
+        notes: Object.fromEntries(Object.entries(raw.notes).filter(([k,v])=>
+          k.length<180 && typeof v==='string').map(([k,v])=>[k,v.slice(0,5000)])),
+        custom: raw.custom.filter(j=>j&&typeof j==='object'&&typeof j.id==='string'&&
+          j.id.length<180&&typeof j.company==='string'&&typeof j.title==='string'&&
+          typeof j.url==='string').slice(0,1000),
+        _revisions: raw._revisions&&typeof raw._revisions==='object'&&!Array.isArray(raw._revisions)
+          ? Object.fromEntries(Object.entries(raw._revisions).filter(([k,v])=>k.length<230&&Number.isFinite(v))) : {}
+      };
+      if(!confirm('Replace all application progress currently in this browser with the imported backup? Download your current backup first if you need it.'))return;
+      window.ScoutBridge.setProgress(cleaned);
+      window.ScoutCloud?.scheduleSync?.();
+      $('#backupFeedback').textContent='Progress restored. Your bookmarks, notes and custom listings are available here.';
+    }catch(err){ $('#backupFeedback').textContent='Restore failed: '+(err?.message||'Invalid backup'); }
+  });
   $('#exportCsv').addEventListener('click',()=>{
     const headings=['Company','Title','Location','Field','Season','Graduation Years Mentioned','Eligibility','Application Status','URL','Deadline','Notes','Source'];
     const rows=getJobs().map(j=>[j.company,j.title,j.location,j.category,j.season,getGradYears(j).join(';'),j.eligibility,local.tracking[j.id]||'not started',j.url,j.deadline||'',local.notes[j.id]||'',j.source]);

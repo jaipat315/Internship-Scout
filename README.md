@@ -68,7 +68,7 @@ To enable real cross-device, per-student persistence, set up Supabase Auth and a
 4. In Authentication → URL Configuration, set the Site URL to `https://jaipat315.github.io/Internship-Scout/` and add that exact URL to your allowed redirect URLs. Enable email OTP/magic-link sign-in in Authentication → Providers → Email. Confirm your email templates and any email quota limits.
 5. Commit the updated `assets/cloud-config.js` to GitHub. The **Save progress** button will allow email magic-link sign-in. On login, browser progress merges with the private account row and is saved to Supabase. Bookmarks/notes/application stages/manual listings then load when signing in from another device.
 
-The login automatically merges existing browser records into the account. Change tracking uses per-entry modification timestamps to preserve saves/deletions across devices in normal serial use, but simultaneous edits on different devices are not guaranteed conflict-free. When signed out, account progress is cleared from that browser; cloud data remains under the user's account. For backups, export CSV.
+The login automatically merges existing browser records into the account. Change tracking uses per-entry modification timestamps to preserve saves/deletions across devices in normal serial use, but simultaneous edits on different devices are not guaranteed conflict-free. When signed out, account progress is cleared from that browser; cloud data remains under the user's account. For full backups, use **Save progress → Download backup**. The JSON file contains bookmarks, stages, notes, custom listings and conflict-resolution timestamps. **Restore backup** imports it into another browser. CSV exports are available separately for spreadsheets.
 
 A public key is safe to ship **only after Row Level Security is enabled and tested**. Do not store sensitive personal data beyond application notes. Each user's account is separate; a public link does not share another student's private notes.
 
@@ -89,3 +89,11 @@ A public key is safe to ship **only after Row Level Security is enabled and test
 - **Graduation-year selector:** classes of 2027–2031. A blank employer requirement never establishes eligibility; such roles stay visible but flagged for checking.
 
 The job listings dashboard is public. With Supabase properly configured, personal notes and statuses are saved privately per authenticated person. Without setup, each person's browser keeps their data locally.
+
+## Backup/restore while cloud accounts are not active
+
+1. Open **Save progress → Download backup**. Store the JSON file privately; it includes your personal application notes.
+2. On another browser or device, open **Save progress → Restore backup** and choose the file.
+3. Import intentionally *replaces* the tracker state in that browser. Download its backup first if it has existing progress.
+
+This protects progress between devices without a cloud project. Once Supabase is configured, email sign-in can provide automatic per-user syncing. Note: CSV exports are not the same as the complete private JSON backup.
