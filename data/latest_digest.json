@@ -1,17 +1,12 @@
 {
-  "updated_at": "2026-11-09T14:45:28Z",
+  "updated_at": "2026-11-09T21:06:08Z",
   "added_ids": [
-    "feed-point72-8876354002",
-    "feed-merceradvisors-4949043008",
-    "feed-ramp-b39ceb08-a0a7-4f8b-a760-2fb88e209956",
-    "feed-ramp-a13ae586-f4cb-4385-8822-c42b9b54ed74",
-    "feed-ramp-b66be397-240b-41a6-9b05-493299b270a9"
+    "feed-moorecolson-726af35b-745f-4943-adcf-7c791b1a5101"
   ],
   "errors": [
     "Corient: HTTPError — HTTP Error 404: Not Found",
     "Wealth Enhancement Group: HTTPError — HTTP Error 404: Not Found",
-    "Greenlight: HTTPError — HTTP Error 404: Not Found",
     "Plaid: HTTPError — HTTP Error 404: Not Found"
   ],
-  "message": "Weekly scan completed: 6 employer boards checked, 5 newly discovered internships."
+  "message": "Weekly scan completed: 11 employer boards checked, 1 newly discovered internships."
 }
