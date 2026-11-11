@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-10T14:24:41Z",
+  "updated_at": "2026-11-11T20:14:20Z",
   "update_type": "automated_feed_scan",
   "source_note": "ATS feeds checked. A job appears active only when an employer feed returned it; other listings remain unverified leads. Handshake requires a UGA login and is not scraped.",
   "successful_sources": 34,
@@ -89,7 +89,7 @@
       "id": "feed-frazierdeeter-7978864003",
       "company": "Frazier & Deeter",
       "title": "Campus 2028 Summer Tax Intern",
-      "location": "Alpharetta, Georgia, United States; Atlanta, Georgia, United States; Canton, Massachusetts, United States; Charlotte, North Carolina, United States; Huntsville, Alabama, United States; Las Vegas, Nevada, United States; Pensacola, Florida, United States; Plymouth, Minnesota, United States; Tampa, Florida, United States; Towson, Maryland, United States",
+      "location": "Alpharetta, Georgia, United States; Atlanta, Georgia, United States; Canton, Massachusetts, United States; Charlotte, North Carolina, United States; Huntsville, Alabama, United States; Pensacola, Florida, United States; Tampa, Florida, United States; Towson, Maryland, United States",
       "area": "Atlanta",
       "category": "Tax",
       "season": "Summer 2028",
@@ -102,7 +102,7 @@
       "source_board": "frazierdeeter",
       "status": "live-feed",
       "first_seen": "2026-11-09",
-      "posted_at": "2026-11-02",
+      "posted_at": "2026-11-10",
       "deadline": null
     },
     {
@@ -327,7 +327,7 @@
       "source_board": "andurilindustries",
       "status": "live-feed",
       "first_seen": "2026-11-09",
-      "posted_at": "2026-11-02",
+      "posted_at": "2026-11-10",
       "deadline": null
     },
     {
@@ -651,26 +651,6 @@
       "deadline": null
     },
     {
-      "id": "feed-asteraearlycareer2027-4731995005",
-      "company": "Astera Labs Early Career 2027",
-      "title": "Data Analytics Intern",
-      "location": "San Jose, CA",
-      "area": "Nationwide",
-      "category": "Analytics",
-      "season": "Not specified",
-      "eligibility": "unknown",
-      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
-      "graduation_years": [],
-      "salary": null,
-      "url": "https://job-boards.greenhouse.io/asteraearlycareer2027/jobs/4731995005",
-      "source": "Astera Labs Early Career 2027 employer feed",
-      "source_board": "asteraearlycareer2027",
-      "status": "live-feed",
-      "first_seen": "2026-11-09",
-      "posted_at": "2026-10-28",
-      "deadline": null
-    },
-    {
       "id": "feed-asteraearlycareer2027-4732412005",
       "company": "Astera Labs Early Career 2027",
       "title": "Finance Intern (Accounting)",
@@ -731,9 +711,9 @@
       "deadline": null
     },
     {
-      "id": "feed-bridgewater89-8395041002",
+      "id": "feed-bridgewater89-8937917002",
       "company": "Bridgewater Associates",
-      "title": "2027 Investment Associate Intern ",
+      "title": "2028 Investment Associate Intern",
       "location": "New York City",
       "area": "Nationwide",
       "category": "Investment",
@@ -742,12 +722,12 @@
       "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
       "graduation_years": [],
       "salary": null,
-      "url": "https://job-boards.greenhouse.io/bridgewater89/jobs/8395041002",
+      "url": "https://job-boards.greenhouse.io/bridgewater89/jobs/8937917002",
       "source": "Bridgewater Associates employer feed",
       "source_board": "bridgewater89",
       "status": "live-feed",
-      "first_seen": "2026-11-09",
-      "posted_at": "2026-09-23",
+      "first_seen": "2026-11-11",
+      "posted_at": "2026-11-11",
       "deadline": null
     },
     {
@@ -1554,6 +1534,26 @@
       "deadline": null
     },
     {
+      "id": "feed-robinhood-8197614",
+      "company": "Robinhood",
+      "title": "People Partner Intern (Summer 2027)",
+      "location": "New York, NY",
+      "area": "Nationwide",
+      "category": "Finance",
+      "season": "Summer 2027",
+      "eligibility": "unknown",
+      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
+      "graduation_years": [],
+      "salary": null,
+      "url": "https://boards.greenhouse.io/robinhood/jobs/8197614?t=gh_src=&gh_jid=8197614",
+      "source": "Robinhood employer feed",
+      "source_board": "robinhood",
+      "status": "live-feed",
+      "first_seen": "2026-11-11",
+      "posted_at": "2026-11-10",
+      "deadline": null
+    },
+    {
       "id": "feed-scientech-research-b05bcb2f-2bb6-40c4-8702-3ba386eeab80",
       "company": "Scientech Research",
       "title": "Quantitative Researcher Intern",
@@ -1620,29 +1620,6 @@
       "deadline": null
     },
     {
-      "id": "feed-secretariatadvisorsllc-4396088009",
-      "company": "Secretariat",
-      "title": "Intern, Construction Delay ",
-      "location": "Houston, Texas, United States",
-      "area": "Nationwide",
-      "category": "Consulting",
-      "season": "Not specified",
-      "eligibility": "unknown",
-      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
-      "graduation_years": [
-        2027,
-        2028
-      ],
-      "salary": null,
-      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396088009",
-      "source": "Secretariat employer feed",
-      "source_board": "secretariatadvisorsllc",
-      "status": "live-feed",
-      "first_seen": "2026-11-09",
-      "posted_at": "2026-09-04",
-      "deadline": null
-    },
-    {
       "id": "feed-secretariatadvisorsllc-4396459009",
       "company": "Secretariat",
       "title": "Intern, Construction Delay ",
@@ -1689,13 +1666,13 @@
       "deadline": null
     },
     {
-      "id": "feed-secretariatadvisorsllc-4401579009",
+      "id": "feed-secretariatadvisorsllc-4396088009",
       "company": "Secretariat",
-      "title": "Intern, Damages & Valuations (Summer 2027)",
-      "location": "Los Angeles, California, United States",
+      "title": "Intern, Construction Delay ",
+      "location": "Houston, Texas, United States",
       "area": "Nationwide",
-      "category": "Investment",
-      "season": "Summer 2027",
+      "category": "Consulting",
+      "season": "Not specified",
       "eligibility": "unknown",
       "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
       "graduation_years": [
@@ -1703,12 +1680,12 @@
         2028
       ],
       "salary": null,
-      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4401579009",
+      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396088009",
       "source": "Secretariat employer feed",
       "source_board": "secretariatadvisorsllc",
       "status": "live-feed",
       "first_seen": "2026-11-09",
-      "posted_at": "2026-09-10",
+      "posted_at": "2026-09-04",
       "deadline": null
     },
     {
@@ -1732,6 +1709,29 @@
       "status": "live-feed",
       "first_seen": "2026-11-09",
       "posted_at": "2026-09-22",
+      "deadline": null
+    },
+    {
+      "id": "feed-secretariatadvisorsllc-4401579009",
+      "company": "Secretariat",
+      "title": "Intern, Damages & Valuations (Summer 2027)",
+      "location": "Los Angeles, California, United States",
+      "area": "Nationwide",
+      "category": "Investment",
+      "season": "Summer 2027",
+      "eligibility": "unknown",
+      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
+      "graduation_years": [
+        2027,
+        2028
+      ],
+      "salary": null,
+      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4401579009",
+      "source": "Secretariat employer feed",
+      "source_board": "secretariatadvisorsllc",
+      "status": "live-feed",
+      "first_seen": "2026-11-09",
+      "posted_at": "2026-09-10",
       "deadline": null
     },
     {
@@ -2393,6 +2393,46 @@
       "first_seen": "2026-11-09",
       "posted_at": null,
       "deadline": "2026-11-13"
+    },
+    {
+      "id": "feed-asteraearlycareer2027-4731995005",
+      "company": "Astera Labs Early Career 2027",
+      "title": "Data Analytics Intern",
+      "location": "San Jose, CA",
+      "area": "Nationwide",
+      "category": "Analytics",
+      "season": "Not specified",
+      "eligibility": "unknown",
+      "eligibility_note": "Not present on the latest successful employer feed; may have closed. Recheck before applying.",
+      "graduation_years": [],
+      "salary": null,
+      "url": "https://job-boards.greenhouse.io/asteraearlycareer2027/jobs/4731995005",
+      "source": "Astera Labs Early Career 2027 employer feed",
+      "source_board": "asteraearlycareer2027",
+      "status": "not-seen",
+      "first_seen": "2026-11-09",
+      "posted_at": "2026-10-28",
+      "deadline": null
+    },
+    {
+      "id": "feed-bridgewater89-8395041002",
+      "company": "Bridgewater Associates",
+      "title": "2027 Investment Associate Intern ",
+      "location": "New York City",
+      "area": "Nationwide",
+      "category": "Investment",
+      "season": "Not specified",
+      "eligibility": "unknown",
+      "eligibility_note": "Not present on the latest successful employer feed; may have closed. Recheck before applying.",
+      "graduation_years": [],
+      "salary": null,
+      "url": "https://job-boards.greenhouse.io/bridgewater89/jobs/8395041002",
+      "source": "Bridgewater Associates employer feed",
+      "source_board": "bridgewater89",
+      "status": "not-seen",
+      "first_seen": "2026-11-09",
+      "posted_at": "2026-09-23",
+      "deadline": null
     },
     {
       "id": "seed-point72-2028",
