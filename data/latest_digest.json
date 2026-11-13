@@ -1,9 +1,11 @@
 {
-  "updated_at": "2026-11-12T20:51:29Z",
+  "updated_at": "2026-11-13T20:30:14Z",
   "added_ids": [
-    "feed-galaxydigitalservices-6256113004",
-    "feed-galaxydigitalservices-6256234004"
+    "feed-ramp-b87e898f-8d8b-447d-b3d5-9073ccf7d109",
+    "feed-northmarq-5481439008"
   ],
-  "errors": [],
-  "message": "Daily scan completed: 34 employer boards checked, 2 newly discovered internships."
+  "errors": [
+    "Anduril: TimeoutError — The read operation timed out"
+  ],
+  "message": "Daily scan completed: 33 employer boards checked, 2 newly discovered internships."
 }

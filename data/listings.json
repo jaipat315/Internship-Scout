@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-12T20:51:29Z",
+  "updated_at": "2026-11-13T20:30:14Z",
   "update_type": "automated_feed_scan",
   "source_note": "ATS feeds checked. A job appears active only when an employer feed returned it; other listings remain unverified leads. Handshake requires a UGA login and is not scraped.",
-  "successful_sources": 34,
+  "successful_sources": 33,
   "configured_sources": 34,
   "jobs": [
     {
@@ -102,7 +102,7 @@
       "source_board": "frazierdeeter",
       "status": "live-feed",
       "first_seen": "2026-11-09",
-      "posted_at": "2026-11-10",
+      "posted_at": "2026-11-13",
       "deadline": null
     },
     {
@@ -468,26 +468,6 @@
       "status": "live-feed",
       "first_seen": "2026-11-09",
       "posted_at": "2026-03-05",
-      "deadline": null
-    },
-    {
-      "id": "feed-Aprio-36544a16-7748-4da6-8a0a-74792107fe25",
-      "company": "Aprio",
-      "title": "Aprio Spring/Fall 2027 Internship Application - Audit - Philadelphia",
-      "location": "Philadelphia, PA",
-      "area": "Nationwide",
-      "category": "Audit",
-      "season": "Fall 2027",
-      "eligibility": "unknown",
-      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
-      "graduation_years": [],
-      "salary": null,
-      "url": "https://jobs.lever.co/Aprio/36544a16-7748-4da6-8a0a-74792107fe25",
-      "source": "Aprio employer feed",
-      "source_board": "Aprio",
-      "status": "live-feed",
-      "first_seen": "2026-11-09",
-      "posted_at": "2026-09-08",
       "deadline": null
     },
     {
@@ -884,7 +864,7 @@
       "eligibility": "unknown",
       "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
       "graduation_years": [
-        2027
+        2028
       ],
       "salary": null,
       "url": "https://job-boards.greenhouse.io/galaxydigitalservices/jobs/6256113004",
@@ -926,11 +906,11 @@
       "area": "Nationwide",
       "category": "Banking",
       "season": "Not specified",
-      "eligibility": "confirmed",
-      "eligibility_note": "Employer text mentions 2029 graduation; verify exact allowed graduation window",
+      "eligibility": "unknown",
+      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
       "graduation_years": [
         2027,
-        2029
+        2028
       ],
       "salary": null,
       "url": "https://job-boards.greenhouse.io/galaxydigitalservices/jobs/6240963004",
@@ -938,7 +918,7 @@
       "source_board": "galaxydigitalservices",
       "status": "live-feed",
       "first_seen": "2026-11-09",
-      "posted_at": "2026-11-03",
+      "posted_at": "2026-11-13",
       "deadline": null
     },
     {
@@ -1193,6 +1173,26 @@
       "deadline": null
     },
     {
+      "id": "feed-northmarq-5481439008",
+      "company": "Northmarq",
+      "title": "Fund Management Summer 2027 Analyst Intern",
+      "location": "New York, New York, United States",
+      "area": "Nationwide",
+      "category": "Investment",
+      "season": "Summer 2027",
+      "eligibility": "unknown",
+      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
+      "graduation_years": [],
+      "salary": null,
+      "url": "https://job-boards.greenhouse.io/northmarq/jobs/5481439008",
+      "source": "Northmarq employer feed",
+      "source_board": "northmarq",
+      "status": "live-feed",
+      "first_seen": "2026-11-13",
+      "posted_at": "2026-11-13",
+      "deadline": null
+    },
+    {
       "id": "feed-northmarq-5414561008",
       "company": "Northmarq",
       "title": "Portfolio and Asset Management Intern, Summer 2027",
@@ -1416,6 +1416,28 @@
       "deadline": null
     },
     {
+      "id": "feed-ramp-b87e898f-8d8b-447d-b3d5-9073ccf7d109",
+      "company": "Ramp",
+      "title": "Risk Strategy Intern",
+      "location": "New York, NY (HQ)",
+      "area": "Nationwide",
+      "category": "Finance",
+      "season": "Not specified",
+      "eligibility": "unknown",
+      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
+      "graduation_years": [
+        2027
+      ],
+      "salary": "$8K per month",
+      "url": "https://jobs.ashbyhq.com/ramp/b87e898f-8d8b-447d-b3d5-9073ccf7d109",
+      "source": "Ramp employer feed",
+      "source_board": "ramp",
+      "status": "live-feed",
+      "first_seen": "2026-11-13",
+      "posted_at": "2026-11-13",
+      "deadline": null
+    },
+    {
       "id": "feed-rclco-8243963",
       "company": "RCLCO",
       "title": "2027 Summer Intern, Investments & Portfolio Management",
@@ -1542,6 +1564,29 @@
       "deadline": null
     },
     {
+      "id": "feed-secretariatadvisorsllc-4396514009",
+      "company": "Secretariat",
+      "title": "Intern, Construction Delay ",
+      "location": "Washington, District of Columbia, United States",
+      "area": "Nationwide",
+      "category": "Consulting",
+      "season": "Not specified",
+      "eligibility": "unknown",
+      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
+      "graduation_years": [
+        2027,
+        2028
+      ],
+      "salary": null,
+      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396514009",
+      "source": "Secretariat employer feed",
+      "source_board": "secretariatadvisorsllc",
+      "status": "live-feed",
+      "first_seen": "2026-11-09",
+      "posted_at": "2026-09-08",
+      "deadline": null
+    },
+    {
       "id": "feed-secretariatadvisorsllc-4396076009",
       "company": "Secretariat",
       "title": "Intern, Construction Delay ",
@@ -1611,29 +1656,6 @@
       "deadline": null
     },
     {
-      "id": "feed-secretariatadvisorsllc-4396514009",
-      "company": "Secretariat",
-      "title": "Intern, Construction Delay ",
-      "location": "Washington, District of Columbia, United States",
-      "area": "Nationwide",
-      "category": "Consulting",
-      "season": "Not specified",
-      "eligibility": "unknown",
-      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
-      "graduation_years": [
-        2027,
-        2028
-      ],
-      "salary": null,
-      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396514009",
-      "source": "Secretariat employer feed",
-      "source_board": "secretariatadvisorsllc",
-      "status": "live-feed",
-      "first_seen": "2026-11-09",
-      "posted_at": "2026-09-08",
-      "deadline": null
-    },
-    {
       "id": "feed-secretariatadvisorsllc-4401585009",
       "company": "Secretariat",
       "title": "Intern, Damages & Valuations (Summer 2027)",
@@ -1680,29 +1702,6 @@
       "deadline": null
     },
     {
-      "id": "feed-secretariatadvisorsllc-4401579009",
-      "company": "Secretariat",
-      "title": "Intern, Damages & Valuations (Summer 2027)",
-      "location": "Los Angeles, California, United States",
-      "area": "Nationwide",
-      "category": "Investment",
-      "season": "Summer 2027",
-      "eligibility": "unknown",
-      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
-      "graduation_years": [
-        2027,
-        2028
-      ],
-      "salary": null,
-      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4401579009",
-      "source": "Secretariat employer feed",
-      "source_board": "secretariatadvisorsllc",
-      "status": "live-feed",
-      "first_seen": "2026-11-09",
-      "posted_at": "2026-09-10",
-      "deadline": null
-    },
-    {
       "id": "feed-secretariatadvisorsllc-4401614009",
       "company": "Secretariat",
       "title": "Intern, Damages & Valuations (Summer 2027)",
@@ -1723,6 +1722,29 @@
       "status": "live-feed",
       "first_seen": "2026-11-09",
       "posted_at": "2026-09-24",
+      "deadline": null
+    },
+    {
+      "id": "feed-secretariatadvisorsllc-4401579009",
+      "company": "Secretariat",
+      "title": "Intern, Damages & Valuations (Summer 2027)",
+      "location": "Los Angeles, California, United States",
+      "area": "Nationwide",
+      "category": "Investment",
+      "season": "Summer 2027",
+      "eligibility": "unknown",
+      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
+      "graduation_years": [
+        2027,
+        2028
+      ],
+      "salary": null,
+      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4401579009",
+      "source": "Secretariat employer feed",
+      "source_board": "secretariatadvisorsllc",
+      "status": "live-feed",
+      "first_seen": "2026-11-09",
+      "posted_at": "2026-09-10",
       "deadline": null
     },
     {
@@ -2394,6 +2416,26 @@
       "status": "not-seen",
       "first_seen": "2026-11-09",
       "posted_at": "2026-03-19",
+      "deadline": null
+    },
+    {
+      "id": "feed-Aprio-36544a16-7748-4da6-8a0a-74792107fe25",
+      "company": "Aprio",
+      "title": "Aprio Spring/Fall 2027 Internship Application - Audit - Philadelphia",
+      "location": "Philadelphia, PA",
+      "area": "Nationwide",
+      "category": "Audit",
+      "season": "Fall 2027",
+      "eligibility": "unknown",
+      "eligibility_note": "Not present on the latest successful employer feed; may have closed. Recheck before applying.",
+      "graduation_years": [],
+      "salary": null,
+      "url": "https://jobs.lever.co/Aprio/36544a16-7748-4da6-8a0a-74792107fe25",
+      "source": "Aprio employer feed",
+      "source_board": "Aprio",
+      "status": "not-seen",
+      "first_seen": "2026-11-09",
+      "posted_at": "2026-09-08",
       "deadline": null
     },
     {
