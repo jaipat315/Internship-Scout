@@ -1,11 +1,8 @@
 {
-  "updated_at": "2026-11-13T20:30:14Z",
+  "updated_at": "2026-11-14T18:45:22Z",
   "added_ids": [
-    "feed-ramp-b87e898f-8d8b-447d-b3d5-9073ccf7d109",
-    "feed-northmarq-5481439008"
+    "feed-robinhood-8357464"
   ],
-  "errors": [
-    "Anduril: TimeoutError — The read operation timed out"
-  ],
-  "message": "Daily scan completed: 33 employer boards checked, 2 newly discovered internships."
+  "errors": [],
+  "message": "Daily scan completed: 34 employer boards checked, 1 newly discovered internships."
 }

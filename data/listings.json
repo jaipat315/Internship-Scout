@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-13T20:30:14Z",
+  "updated_at": "2026-11-14T18:45:22Z",
   "update_type": "automated_feed_scan",
   "source_note": "ATS feeds checked. A job appears active only when an employer feed returned it; other listings remain unverified leads. Handshake requires a UGA login and is not scraped.",
-  "successful_sources": 33,
+  "successful_sources": 34,
   "configured_sources": 34,
   "jobs": [
     {
@@ -293,7 +293,7 @@
     {
       "id": "feed-andurilindustries-5271826007",
       "company": "Anduril",
-      "title": "2027 Business Operations Intern",
+      "title": "2027 Business Operations Intern - Connected Warfare",
       "location": "Costa Mesa, California, United States; Seattle, Washington, United States",
       "area": "Nationwide",
       "category": "Operations",
@@ -307,7 +307,7 @@
       "source_board": "andurilindustries",
       "status": "live-feed",
       "first_seen": "2026-11-09",
-      "posted_at": "2026-11-02",
+      "posted_at": "2026-11-12",
       "deadline": null
     },
     {
@@ -1071,26 +1071,6 @@
       "deadline": null
     },
     {
-      "id": "feed-hpsinterns-4739897005",
-      "company": "HPS Investment Partners",
-      "title": "Intern - Core Senior Lending (CHI)",
-      "location": "Chicago",
-      "area": "Nationwide",
-      "category": "Banking",
-      "season": "Not specified",
-      "eligibility": "unknown",
-      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
-      "graduation_years": [],
-      "salary": null,
-      "url": "https://job-boards.greenhouse.io/hpsinterns/jobs/4739897005",
-      "source": "HPS Investment Partners employer feed",
-      "source_board": "hpsinterns",
-      "status": "live-feed",
-      "first_seen": "2026-11-09",
-      "posted_at": "2026-11-03",
-      "deadline": null
-    },
-    {
       "id": "feed-ibotta-f8880452-62af-4b0d-96ab-6e0943dd4fbf",
       "company": "Ibotta",
       "title": "Accounting Intern",
@@ -1478,26 +1458,23 @@
       "deadline": null
     },
     {
-      "id": "feed-robinhood-8198241",
+      "id": "feed-robinhood-8357464",
       "company": "Robinhood",
-      "title": "Fraud Operations Intern (Summer 2027)",
-      "location": "Denver, CO",
+      "title": "Corporate Finance Intern (Summer 2027)",
+      "location": "New York, NY",
       "area": "Nationwide",
       "category": "Finance",
       "season": "Summer 2027",
       "eligibility": "unknown",
       "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
-      "graduation_years": [
-        2027,
-        2028
-      ],
+      "graduation_years": [],
       "salary": null,
-      "url": "https://boards.greenhouse.io/robinhood/jobs/8198241?t=gh_src=&gh_jid=8198241",
+      "url": "https://boards.greenhouse.io/robinhood/jobs/8357464?t=gh_src=&gh_jid=8357464",
       "source": "Robinhood employer feed",
       "source_board": "robinhood",
       "status": "live-feed",
-      "first_seen": "2026-11-09",
-      "posted_at": "2026-10-15",
+      "first_seen": "2026-11-14",
+      "posted_at": "2026-11-13",
       "deadline": null
     },
     {
@@ -1561,29 +1538,6 @@
       "status": "live-feed",
       "first_seen": "2026-11-09",
       "posted_at": "2026-09-30",
-      "deadline": null
-    },
-    {
-      "id": "feed-secretariatadvisorsllc-4396514009",
-      "company": "Secretariat",
-      "title": "Intern, Construction Delay ",
-      "location": "Washington, District of Columbia, United States",
-      "area": "Nationwide",
-      "category": "Consulting",
-      "season": "Not specified",
-      "eligibility": "unknown",
-      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
-      "graduation_years": [
-        2027,
-        2028
-      ],
-      "salary": null,
-      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396514009",
-      "source": "Secretariat employer feed",
-      "source_board": "secretariatadvisorsllc",
-      "status": "live-feed",
-      "first_seen": "2026-11-09",
-      "posted_at": "2026-09-08",
       "deadline": null
     },
     {
@@ -1656,6 +1610,29 @@
       "deadline": null
     },
     {
+      "id": "feed-secretariatadvisorsllc-4396514009",
+      "company": "Secretariat",
+      "title": "Intern, Construction Delay ",
+      "location": "Washington, District of Columbia, United States",
+      "area": "Nationwide",
+      "category": "Consulting",
+      "season": "Not specified",
+      "eligibility": "unknown",
+      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
+      "graduation_years": [
+        2027,
+        2028
+      ],
+      "salary": null,
+      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396514009",
+      "source": "Secretariat employer feed",
+      "source_board": "secretariatadvisorsllc",
+      "status": "live-feed",
+      "first_seen": "2026-11-09",
+      "posted_at": "2026-09-08",
+      "deadline": null
+    },
+    {
       "id": "feed-secretariatadvisorsllc-4401585009",
       "company": "Secretariat",
       "title": "Intern, Damages & Valuations (Summer 2027)",
@@ -1702,29 +1679,6 @@
       "deadline": null
     },
     {
-      "id": "feed-secretariatadvisorsllc-4401614009",
-      "company": "Secretariat",
-      "title": "Intern, Damages & Valuations (Summer 2027)",
-      "location": "Chicago, Illinois, United States",
-      "area": "Nationwide",
-      "category": "Investment",
-      "season": "Summer 2027",
-      "eligibility": "confirmed",
-      "eligibility_note": "Employer text mentions 2029 graduation; verify exact allowed graduation window",
-      "graduation_years": [
-        2027,
-        2029
-      ],
-      "salary": null,
-      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4401614009",
-      "source": "Secretariat employer feed",
-      "source_board": "secretariatadvisorsllc",
-      "status": "live-feed",
-      "first_seen": "2026-11-09",
-      "posted_at": "2026-09-24",
-      "deadline": null
-    },
-    {
       "id": "feed-secretariatadvisorsllc-4401579009",
       "company": "Secretariat",
       "title": "Intern, Damages & Valuations (Summer 2027)",
@@ -1745,6 +1699,29 @@
       "status": "live-feed",
       "first_seen": "2026-11-09",
       "posted_at": "2026-09-10",
+      "deadline": null
+    },
+    {
+      "id": "feed-secretariatadvisorsllc-4401614009",
+      "company": "Secretariat",
+      "title": "Intern, Damages & Valuations (Summer 2027)",
+      "location": "Chicago, Illinois, United States",
+      "area": "Nationwide",
+      "category": "Investment",
+      "season": "Summer 2027",
+      "eligibility": "confirmed",
+      "eligibility_note": "Employer text mentions 2029 graduation; verify exact allowed graduation window",
+      "graduation_years": [
+        2027,
+        2029
+      ],
+      "salary": null,
+      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4401614009",
+      "source": "Secretariat employer feed",
+      "source_board": "secretariatadvisorsllc",
+      "status": "live-feed",
+      "first_seen": "2026-11-09",
+      "posted_at": "2026-09-24",
       "deadline": null
     },
     {
@@ -2479,6 +2456,26 @@
       "deadline": null
     },
     {
+      "id": "feed-hpsinterns-4739897005",
+      "company": "HPS Investment Partners",
+      "title": "Intern - Core Senior Lending (CHI)",
+      "location": "Chicago",
+      "area": "Nationwide",
+      "category": "Banking",
+      "season": "Not specified",
+      "eligibility": "unknown",
+      "eligibility_note": "Not present on the latest successful employer feed; may have closed. Recheck before applying.",
+      "graduation_years": [],
+      "salary": null,
+      "url": "https://job-boards.greenhouse.io/hpsinterns/jobs/4739897005",
+      "source": "HPS Investment Partners employer feed",
+      "source_board": "hpsinterns",
+      "status": "not-seen",
+      "first_seen": "2026-11-09",
+      "posted_at": "2026-11-03",
+      "deadline": null
+    },
+    {
       "id": "feed-ibotta-97fc4740-8330-4bed-aab1-e95201bdb02d",
       "company": "Ibotta",
       "title": "Corporate Finance Intern",
@@ -2518,6 +2515,29 @@
       "graduation_years": [
         2029
       ]
+    },
+    {
+      "id": "feed-robinhood-8198241",
+      "company": "Robinhood",
+      "title": "Fraud Operations Intern (Summer 2027)",
+      "location": "Denver, CO",
+      "area": "Nationwide",
+      "category": "Finance",
+      "season": "Summer 2027",
+      "eligibility": "unknown",
+      "eligibility_note": "Not present on the latest successful employer feed; may have closed. Recheck before applying.",
+      "graduation_years": [
+        2027,
+        2028
+      ],
+      "salary": null,
+      "url": "https://boards.greenhouse.io/robinhood/jobs/8198241?t=gh_src=&gh_jid=8198241",
+      "source": "Robinhood employer feed",
+      "source_board": "robinhood",
+      "status": "not-seen",
+      "first_seen": "2026-11-09",
+      "posted_at": "2026-10-15",
+      "deadline": null
     },
     {
       "id": "feed-secretariatadvisorsllc-4401661009",
