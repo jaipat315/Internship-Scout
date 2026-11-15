@@ -1,8 +1,6 @@
 {
-  "updated_at": "2026-11-14T18:45:22Z",
-  "added_ids": [
-    "feed-robinhood-8357464"
-  ],
+  "updated_at": "2026-11-15T19:23:31Z",
+  "added_ids": [],
   "errors": [],
-  "message": "Daily scan completed: 34 employer boards checked, 1 newly discovered internships."
+  "message": "Daily scan completed: 34 employer boards checked, 0 newly discovered internships."
 }

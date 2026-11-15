@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-14T18:45:22Z",
+  "updated_at": "2026-11-15T19:23:31Z",
   "update_type": "automated_feed_scan",
   "source_note": "ATS feeds checked. A job appears active only when an employer feed returned it; other listings remain unverified leads. Handshake requires a UGA login and is not scraped.",
   "successful_sources": 34,
