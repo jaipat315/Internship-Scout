@@ -1,6 +1,11 @@
 {
-  "updated_at": "2026-11-15T19:23:31Z",
-  "added_ids": [],
-  "errors": [],
-  "message": "Daily scan completed: 34 employer boards checked, 0 newly discovered internships."
+  "updated_at": "2026-11-16T22:55:10Z",
+  "added_ids": [
+    "feed-galaxydigitalservices-6262681004",
+    "feed-asteraearlycareer2027-4729020005"
+  ],
+  "errors": [
+    "Anduril: TimeoutError — The read operation timed out"
+  ],
+  "message": "Daily scan completed: 33 employer boards checked, 2 newly discovered internships."
 }
