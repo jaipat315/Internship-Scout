@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-16T22:55:10Z",
+  "updated_at": "2026-11-17T21:48:34Z",
   "update_type": "automated_feed_scan",
   "source_note": "ATS feeds checked. A job appears active only when an employer feed returned it; other listings remain unverified leads. Handshake requires a UGA login and is not scraped.",
-  "successful_sources": 33,
+  "successful_sources": 34,
   "configured_sources": 34,
   "jobs": [
     {
@@ -307,7 +307,7 @@
       "source_board": "andurilindustries",
       "status": "live-feed",
       "first_seen": "2026-11-09",
-      "posted_at": "2026-11-12",
+      "posted_at": "2026-11-16",
       "deadline": null
     },
     {
@@ -327,47 +327,7 @@
       "source_board": "andurilindustries",
       "status": "live-feed",
       "first_seen": "2026-11-09",
-      "posted_at": "2026-11-10",
-      "deadline": null
-    },
-    {
-      "id": "feed-Aprio-e8131fd9-decb-49b1-8da7-f7076ac7857c",
-      "company": "Aprio",
-      "title": "Aprio 2027 Internship Application - Tax/Audit - Bay Area",
-      "location": "Walnut Creek, CA",
-      "area": "Nationwide",
-      "category": "Tax",
-      "season": "Not specified",
-      "eligibility": "unknown",
-      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
-      "graduation_years": [],
-      "salary": null,
-      "url": "https://jobs.lever.co/Aprio/e8131fd9-decb-49b1-8da7-f7076ac7857c",
-      "source": "Aprio employer feed",
-      "source_board": "Aprio",
-      "status": "live-feed",
-      "first_seen": "2026-11-09",
-      "posted_at": "2025-09-05",
-      "deadline": null
-    },
-    {
-      "id": "feed-Aprio-ad65dca5-791b-48e5-9761-a01edfcec4df",
-      "company": "Aprio",
-      "title": "Aprio 2028 Internship Application - Tax/Audit - Portland",
-      "location": "Portland, OR",
-      "area": "Nationwide",
-      "category": "Tax",
-      "season": "Not specified",
-      "eligibility": "unknown",
-      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
-      "graduation_years": [],
-      "salary": null,
-      "url": "https://jobs.lever.co/Aprio/ad65dca5-791b-48e5-9761-a01edfcec4df",
-      "source": "Aprio employer feed",
-      "source_board": "Aprio",
-      "status": "live-feed",
-      "first_seen": "2026-11-09",
-      "posted_at": "2026-03-19",
+      "posted_at": "2026-11-16",
       "deadline": null
     },
     {
@@ -932,26 +892,6 @@
       "deadline": null
     },
     {
-      "id": "feed-northmarq-5414561008",
-      "company": "Northmarq",
-      "title": "Portfolio and Asset Management Intern, Summer 2027",
-      "location": "Minneapolis, Minnesota, United States",
-      "area": "Nationwide",
-      "category": "Investment",
-      "season": "Summer 2027",
-      "eligibility": "unknown",
-      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
-      "graduation_years": [],
-      "salary": null,
-      "url": "https://job-boards.greenhouse.io/northmarq/jobs/5414561008",
-      "source": "Northmarq employer feed",
-      "source_board": "northmarq",
-      "status": "live-feed",
-      "first_seen": "2026-11-09",
-      "posted_at": "2026-09-28",
-      "deadline": null
-    },
-    {
       "id": "feed-northmarq-5415779008",
       "company": "Northmarq",
       "title": "Portfolio and Asset Management Intern, Summer 2027",
@@ -969,6 +909,26 @@
       "status": "live-feed",
       "first_seen": "2026-11-09",
       "posted_at": "2026-10-15",
+      "deadline": null
+    },
+    {
+      "id": "feed-northmarq-5414561008",
+      "company": "Northmarq",
+      "title": "Portfolio and Asset Management Intern, Summer 2027",
+      "location": "Minneapolis, Minnesota, United States",
+      "area": "Nationwide",
+      "category": "Investment",
+      "season": "Summer 2027",
+      "eligibility": "unknown",
+      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
+      "graduation_years": [],
+      "salary": null,
+      "url": "https://job-boards.greenhouse.io/northmarq/jobs/5414561008",
+      "source": "Northmarq employer feed",
+      "source_board": "northmarq",
+      "status": "live-feed",
+      "first_seen": "2026-11-09",
+      "posted_at": "2026-09-28",
       "deadline": null
     },
     {
@@ -1323,10 +1283,10 @@
       "deadline": null
     },
     {
-      "id": "feed-secretariatadvisorsllc-4396076009",
+      "id": "feed-secretariatadvisorsllc-4396459009",
       "company": "Secretariat",
       "title": "Intern, Construction Delay ",
-      "location": "New York, New York, United States",
+      "location": "Los Angeles, California, United States",
       "area": "Nationwide",
       "category": "Consulting",
       "season": "Not specified",
@@ -1337,12 +1297,12 @@
         2028
       ],
       "salary": null,
-      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396076009",
+      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396459009",
       "source": "Secretariat employer feed",
       "source_board": "secretariatadvisorsllc",
       "status": "live-feed",
       "first_seen": "2026-11-09",
-      "posted_at": "2026-09-04",
+      "posted_at": "2026-09-08",
       "deadline": null
     },
     {
@@ -1369,10 +1329,10 @@
       "deadline": null
     },
     {
-      "id": "feed-secretariatadvisorsllc-4396459009",
+      "id": "feed-secretariatadvisorsllc-4396076009",
       "company": "Secretariat",
       "title": "Intern, Construction Delay ",
-      "location": "Los Angeles, California, United States",
+      "location": "New York, New York, United States",
       "area": "Nationwide",
       "category": "Consulting",
       "season": "Not specified",
@@ -1383,81 +1343,12 @@
         2028
       ],
       "salary": null,
-      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396459009",
+      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396076009",
       "source": "Secretariat employer feed",
       "source_board": "secretariatadvisorsllc",
       "status": "live-feed",
       "first_seen": "2026-11-09",
-      "posted_at": "2026-09-08",
-      "deadline": null
-    },
-    {
-      "id": "feed-secretariatadvisorsllc-4401585009",
-      "company": "Secretariat",
-      "title": "Intern, Damages & Valuations (Summer 2027)",
-      "location": "Washington, District of Columbia, United States",
-      "area": "Nationwide",
-      "category": "Investment",
-      "season": "Summer 2027",
-      "eligibility": "unknown",
-      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
-      "graduation_years": [
-        2027,
-        2028
-      ],
-      "salary": null,
-      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4401585009",
-      "source": "Secretariat employer feed",
-      "source_board": "secretariatadvisorsllc",
-      "status": "live-feed",
-      "first_seen": "2026-11-09",
-      "posted_at": "2026-09-10",
-      "deadline": null
-    },
-    {
-      "id": "feed-secretariatadvisorsllc-4401619009",
-      "company": "Secretariat",
-      "title": "Intern, Damages & Valuations (Summer 2027)",
-      "location": "Denver, Colorado, United States",
-      "area": "Nationwide",
-      "category": "Investment",
-      "season": "Summer 2027",
-      "eligibility": "unknown",
-      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
-      "graduation_years": [
-        2027,
-        2028
-      ],
-      "salary": null,
-      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4401619009",
-      "source": "Secretariat employer feed",
-      "source_board": "secretariatadvisorsllc",
-      "status": "live-feed",
-      "first_seen": "2026-11-09",
-      "posted_at": "2026-09-22",
-      "deadline": null
-    },
-    {
-      "id": "feed-secretariatadvisorsllc-4401614009",
-      "company": "Secretariat",
-      "title": "Intern, Damages & Valuations (Summer 2027)",
-      "location": "Chicago, Illinois, United States",
-      "area": "Nationwide",
-      "category": "Investment",
-      "season": "Summer 2027",
-      "eligibility": "confirmed",
-      "eligibility_note": "Employer text mentions 2029 graduation; verify exact allowed graduation window",
-      "graduation_years": [
-        2027,
-        2029
-      ],
-      "salary": null,
-      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4401614009",
-      "source": "Secretariat employer feed",
-      "source_board": "secretariatadvisorsllc",
-      "status": "live-feed",
-      "first_seen": "2026-11-09",
-      "posted_at": "2026-09-24",
+      "posted_at": "2026-09-04",
       "deadline": null
     },
     {
@@ -1476,6 +1367,29 @@
       ],
       "salary": null,
       "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4401579009",
+      "source": "Secretariat employer feed",
+      "source_board": "secretariatadvisorsllc",
+      "status": "live-feed",
+      "first_seen": "2026-11-09",
+      "posted_at": "2026-09-10",
+      "deadline": null
+    },
+    {
+      "id": "feed-secretariatadvisorsllc-4401585009",
+      "company": "Secretariat",
+      "title": "Intern, Damages & Valuations (Summer 2027)",
+      "location": "Washington, District of Columbia, United States",
+      "area": "Nationwide",
+      "category": "Investment",
+      "season": "Summer 2027",
+      "eligibility": "unknown",
+      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
+      "graduation_years": [
+        2027,
+        2028
+      ],
+      "salary": null,
+      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4401585009",
       "source": "Secretariat employer feed",
       "source_board": "secretariatadvisorsllc",
       "status": "live-feed",
@@ -1523,7 +1437,7 @@
       "source_board": "veritiongroupllcinternships",
       "status": "live-feed",
       "first_seen": "2026-11-09",
-      "posted_at": "2026-10-30",
+      "posted_at": "2026-11-17",
       "deadline": null
     },
     {
@@ -1543,7 +1457,7 @@
       "source_board": "veritiongroupllcinternships",
       "status": "live-feed",
       "first_seen": "2026-11-09",
-      "posted_at": "2026-10-30",
+      "posted_at": "2026-11-17",
       "deadline": null
     },
     {
@@ -1563,7 +1477,7 @@
       "source_board": "veritiongroupllcinternships",
       "status": "live-feed",
       "first_seen": "2026-11-09",
-      "posted_at": "2026-10-30",
+      "posted_at": "2026-11-17",
       "deadline": null
     },
     {
@@ -2095,6 +2009,26 @@
       "deadline": null
     },
     {
+      "id": "feed-Aprio-e8131fd9-decb-49b1-8da7-f7076ac7857c",
+      "company": "Aprio",
+      "title": "Aprio 2027 Internship Application - Tax/Audit - Bay Area",
+      "location": "Walnut Creek, CA",
+      "area": "Nationwide",
+      "category": "Tax",
+      "season": "Not specified",
+      "eligibility": "unknown",
+      "eligibility_note": "Not present on the latest successful employer feed; may have closed. Recheck before applying.",
+      "graduation_years": [],
+      "salary": null,
+      "url": "https://jobs.lever.co/Aprio/e8131fd9-decb-49b1-8da7-f7076ac7857c",
+      "source": "Aprio employer feed",
+      "source_board": "Aprio",
+      "status": "not-seen",
+      "first_seen": "2026-11-09",
+      "posted_at": "2025-09-05",
+      "deadline": null
+    },
+    {
       "id": "feed-Aprio-b401ae14-39dd-4c29-90af-1ebc111ff6f5",
       "company": "Aprio",
       "title": "Aprio 2028 Internship Application - Tax/Audit - Dedham, MA",
@@ -2172,6 +2106,26 @@
       "status": "not-seen",
       "first_seen": "2026-11-09",
       "posted_at": "2026-09-25",
+      "deadline": null
+    },
+    {
+      "id": "feed-Aprio-ad65dca5-791b-48e5-9761-a01edfcec4df",
+      "company": "Aprio",
+      "title": "Aprio 2028 Internship Application - Tax/Audit - Portland",
+      "location": "Portland, OR",
+      "area": "Nationwide",
+      "category": "Tax",
+      "season": "Not specified",
+      "eligibility": "unknown",
+      "eligibility_note": "Not present on the latest successful employer feed; may have closed. Recheck before applying.",
+      "graduation_years": [],
+      "salary": null,
+      "url": "https://jobs.lever.co/Aprio/ad65dca5-791b-48e5-9761-a01edfcec4df",
+      "source": "Aprio employer feed",
+      "source_board": "Aprio",
+      "status": "not-seen",
+      "first_seen": "2026-11-09",
+      "posted_at": "2026-03-19",
       "deadline": null
     },
     {
@@ -2579,6 +2533,52 @@
       "status": "not-seen",
       "first_seen": "2026-11-09",
       "posted_at": "2026-10-15",
+      "deadline": null
+    },
+    {
+      "id": "feed-secretariatadvisorsllc-4401619009",
+      "company": "Secretariat",
+      "title": "Intern, Damages & Valuations (Summer 2027)",
+      "location": "Denver, Colorado, United States",
+      "area": "Nationwide",
+      "category": "Investment",
+      "season": "Summer 2027",
+      "eligibility": "unknown",
+      "eligibility_note": "Not present on the latest successful employer feed; may have closed. Recheck before applying.",
+      "graduation_years": [
+        2027,
+        2028
+      ],
+      "salary": null,
+      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4401619009",
+      "source": "Secretariat employer feed",
+      "source_board": "secretariatadvisorsllc",
+      "status": "not-seen",
+      "first_seen": "2026-11-09",
+      "posted_at": "2026-09-22",
+      "deadline": null
+    },
+    {
+      "id": "feed-secretariatadvisorsllc-4401614009",
+      "company": "Secretariat",
+      "title": "Intern, Damages & Valuations (Summer 2027)",
+      "location": "Chicago, Illinois, United States",
+      "area": "Nationwide",
+      "category": "Investment",
+      "season": "Summer 2027",
+      "eligibility": "confirmed",
+      "eligibility_note": "Not present on the latest successful employer feed; may have closed. Recheck before applying.",
+      "graduation_years": [
+        2027,
+        2029
+      ],
+      "salary": null,
+      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4401614009",
+      "source": "Secretariat employer feed",
+      "source_board": "secretariatadvisorsllc",
+      "status": "not-seen",
+      "first_seen": "2026-11-09",
+      "posted_at": "2026-09-24",
       "deadline": null
     },
     {
