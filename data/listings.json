@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-17T21:48:34Z",
+  "updated_at": "2026-11-18T21:27:20Z",
   "update_type": "automated_feed_scan",
   "source_note": "ATS feeds checked. A job appears active only when an employer feed returned it; other listings remain unverified leads. Handshake requires a UGA login and is not scraped.",
-  "successful_sources": 34,
+  "successful_sources": 33,
   "configured_sources": 34,
   "jobs": [
     {
@@ -62,7 +62,7 @@
       "source_board": "frazierdeeter",
       "status": "live-feed",
       "first_seen": "2026-11-09",
-      "posted_at": "2026-11-09",
+      "posted_at": "2026-11-17",
       "deadline": null
     },
     {
@@ -530,7 +530,53 @@
       "source_board": "drivewealth",
       "status": "live-feed",
       "first_seen": "2026-11-09",
-      "posted_at": "2026-11-06",
+      "posted_at": "2026-11-18",
+      "deadline": null
+    },
+    {
+      "id": "feed-drivewealth-8200548003",
+      "company": "DriveWealth",
+      "title": "AI Consulting Associate Program (AI CAP) People Analytics Intern - Summer 2027",
+      "location": "Office - Chicago; Office - NYC",
+      "area": "Nationwide",
+      "category": "Consulting",
+      "season": "Summer 2027",
+      "eligibility": "unknown",
+      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
+      "graduation_years": [
+        2027,
+        2028
+      ],
+      "salary": null,
+      "url": "https://boards.greenhouse.io/drivewealth/jobs/8200548003?gh_jid=8200548003",
+      "source": "DriveWealth employer feed",
+      "source_board": "drivewealth",
+      "status": "live-feed",
+      "first_seen": "2026-11-18",
+      "posted_at": "2026-11-18",
+      "deadline": null
+    },
+    {
+      "id": "feed-drivewealth-8038087003",
+      "company": "DriveWealth",
+      "title": "AI Consulting Associate Program (AI CAP) Product Owner Intern - Summer 2027",
+      "location": "Office - Chicago; Office - NYC",
+      "area": "Nationwide",
+      "category": "Consulting",
+      "season": "Summer 2027",
+      "eligibility": "unknown",
+      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
+      "graduation_years": [
+        2027,
+        2028
+      ],
+      "salary": null,
+      "url": "https://boards.greenhouse.io/drivewealth/jobs/8038087003?gh_jid=8038087003",
+      "source": "DriveWealth employer feed",
+      "source_board": "drivewealth",
+      "status": "live-feed",
+      "first_seen": "2026-11-18",
+      "posted_at": "2026-11-18",
       "deadline": null
     },
     {
@@ -1260,10 +1306,10 @@
       "deadline": null
     },
     {
-      "id": "feed-secretariatadvisorsllc-4396514009",
+      "id": "feed-secretariatadvisorsllc-4396076009",
       "company": "Secretariat",
       "title": "Intern, Construction Delay ",
-      "location": "Washington, District of Columbia, United States",
+      "location": "New York, New York, United States",
       "area": "Nationwide",
       "category": "Consulting",
       "season": "Not specified",
@@ -1274,35 +1320,12 @@
         2028
       ],
       "salary": null,
-      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396514009",
+      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396076009",
       "source": "Secretariat employer feed",
       "source_board": "secretariatadvisorsllc",
       "status": "live-feed",
       "first_seen": "2026-11-09",
-      "posted_at": "2026-09-08",
-      "deadline": null
-    },
-    {
-      "id": "feed-secretariatadvisorsllc-4396459009",
-      "company": "Secretariat",
-      "title": "Intern, Construction Delay ",
-      "location": "Los Angeles, California, United States",
-      "area": "Nationwide",
-      "category": "Consulting",
-      "season": "Not specified",
-      "eligibility": "unknown",
-      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
-      "graduation_years": [
-        2027,
-        2028
-      ],
-      "salary": null,
-      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396459009",
-      "source": "Secretariat employer feed",
-      "source_board": "secretariatadvisorsllc",
-      "status": "live-feed",
-      "first_seen": "2026-11-09",
-      "posted_at": "2026-09-08",
+      "posted_at": "2026-09-04",
       "deadline": null
     },
     {
@@ -1329,10 +1352,10 @@
       "deadline": null
     },
     {
-      "id": "feed-secretariatadvisorsllc-4396076009",
+      "id": "feed-secretariatadvisorsllc-4396459009",
       "company": "Secretariat",
       "title": "Intern, Construction Delay ",
-      "location": "New York, New York, United States",
+      "location": "Los Angeles, California, United States",
       "area": "Nationwide",
       "category": "Consulting",
       "season": "Not specified",
@@ -1343,12 +1366,35 @@
         2028
       ],
       "salary": null,
-      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396076009",
+      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396459009",
       "source": "Secretariat employer feed",
       "source_board": "secretariatadvisorsllc",
       "status": "live-feed",
       "first_seen": "2026-11-09",
-      "posted_at": "2026-09-04",
+      "posted_at": "2026-09-08",
+      "deadline": null
+    },
+    {
+      "id": "feed-secretariatadvisorsllc-4396514009",
+      "company": "Secretariat",
+      "title": "Intern, Construction Delay ",
+      "location": "Washington, District of Columbia, United States",
+      "area": "Nationwide",
+      "category": "Consulting",
+      "season": "Not specified",
+      "eligibility": "unknown",
+      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
+      "graduation_years": [
+        2027,
+        2028
+      ],
+      "salary": null,
+      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396514009",
+      "source": "Secretariat employer feed",
+      "source_board": "secretariatadvisorsllc",
+      "status": "live-feed",
+      "first_seen": "2026-11-09",
+      "posted_at": "2026-09-08",
       "deadline": null
     },
     {
