@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-18T21:27:20Z",
+  "updated_at": "2026-11-19T21:38:09Z",
   "update_type": "automated_feed_scan",
   "source_note": "ATS feeds checked. A job appears active only when an employer feed returned it; other listings remain unverified leads. Handshake requires a UGA login and is not scraped.",
-  "successful_sources": 33,
+  "successful_sources": 34,
   "configured_sources": 34,
   "jobs": [
     {
@@ -22,7 +22,7 @@
       "source_board": "amwinsoffline",
       "status": "live-feed",
       "first_seen": "2026-11-09",
-      "posted_at": "2026-10-21",
+      "posted_at": "2026-11-19",
       "deadline": null
     },
     {
@@ -287,7 +287,7 @@
       "source_board": "amwinsoffline",
       "status": "live-feed",
       "first_seen": "2026-11-09",
-      "posted_at": "2026-10-28",
+      "posted_at": "2026-11-19",
       "deadline": null
     },
     {
@@ -642,29 +642,6 @@
       "deadline": null
     },
     {
-      "id": "feed-galaxydigitalservices-6256234004",
-      "company": "Galaxy",
-      "title": "2027 Data Center Growth & Development Intern - NYC",
-      "location": "New York",
-      "area": "Nationwide",
-      "category": "Investment",
-      "season": "Not specified",
-      "eligibility": "unknown",
-      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
-      "graduation_years": [
-        2027,
-        2028
-      ],
-      "salary": null,
-      "url": "https://job-boards.greenhouse.io/galaxydigitalservices/jobs/6256234004",
-      "source": "Galaxy employer feed",
-      "source_board": "galaxydigitalservices",
-      "status": "live-feed",
-      "first_seen": "2026-11-12",
-      "posted_at": "2026-11-12",
-      "deadline": null
-    },
-    {
       "id": "feed-galaxydigitalservices-6262681004",
       "company": "Galaxy",
       "title": "2027 Environmental Health & Safety Engineer Intern-Afton Texas ",
@@ -684,6 +661,29 @@
       "status": "live-feed",
       "first_seen": "2026-11-16",
       "posted_at": "2026-11-16",
+      "deadline": null
+    },
+    {
+      "id": "feed-galaxydigitalservices-6266826004",
+      "company": "Galaxy",
+      "title": "2027 Finance (Internal Audit) Intern - NYC",
+      "location": "New York",
+      "area": "Nationwide",
+      "category": "Audit",
+      "season": "Not specified",
+      "eligibility": "unknown",
+      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
+      "graduation_years": [
+        2027,
+        2028
+      ],
+      "salary": null,
+      "url": "https://job-boards.greenhouse.io/galaxydigitalservices/jobs/6266826004",
+      "source": "Galaxy employer feed",
+      "source_board": "galaxydigitalservices",
+      "status": "live-feed",
+      "first_seen": "2026-11-19",
+      "posted_at": "2026-11-19",
       "deadline": null
     },
     {
@@ -753,6 +753,29 @@
       "status": "live-feed",
       "first_seen": "2026-11-09",
       "posted_at": "2026-11-03",
+      "deadline": null
+    },
+    {
+      "id": "feed-galaxydigitalservices-6266798004",
+      "company": "Galaxy",
+      "title": "2027 Ventures Intern - NYC",
+      "location": "New York",
+      "area": "Nationwide",
+      "category": "Investment",
+      "season": "Not specified",
+      "eligibility": "unknown",
+      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
+      "graduation_years": [
+        2027,
+        2028
+      ],
+      "salary": null,
+      "url": "https://job-boards.greenhouse.io/galaxydigitalservices/jobs/6266798004",
+      "source": "Galaxy employer feed",
+      "source_board": "galaxydigitalservices",
+      "status": "live-feed",
+      "first_seen": "2026-11-19",
+      "posted_at": "2026-11-19",
       "deadline": null
     },
     {
@@ -938,10 +961,10 @@
       "deadline": null
     },
     {
-      "id": "feed-northmarq-5415779008",
+      "id": "feed-northmarq-5406134008",
       "company": "Northmarq",
-      "title": "Portfolio and Asset Management Intern, Summer 2027",
-      "location": "Denver, Colorado, United States",
+      "title": "Insurance Intern, Summer 2027",
+      "location": "Minneapolis, Minnesota, United States",
       "area": "Nationwide",
       "category": "Investment",
       "season": "Summer 2027",
@@ -949,12 +972,12 @@
       "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
       "graduation_years": [],
       "salary": null,
-      "url": "https://job-boards.greenhouse.io/northmarq/jobs/5415779008",
+      "url": "https://job-boards.greenhouse.io/northmarq/jobs/5406134008",
       "source": "Northmarq employer feed",
       "source_board": "northmarq",
       "status": "live-feed",
-      "first_seen": "2026-11-09",
-      "posted_at": "2026-10-15",
+      "first_seen": "2026-11-19",
+      "posted_at": "2026-11-19",
       "deadline": null
     },
     {
@@ -975,6 +998,26 @@
       "status": "live-feed",
       "first_seen": "2026-11-09",
       "posted_at": "2026-09-28",
+      "deadline": null
+    },
+    {
+      "id": "feed-northmarq-5415779008",
+      "company": "Northmarq",
+      "title": "Portfolio and Asset Management Intern, Summer 2027",
+      "location": "Denver, Colorado, United States",
+      "area": "Nationwide",
+      "category": "Investment",
+      "season": "Summer 2027",
+      "eligibility": "unknown",
+      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
+      "graduation_years": [],
+      "salary": null,
+      "url": "https://job-boards.greenhouse.io/northmarq/jobs/5415779008",
+      "source": "Northmarq employer feed",
+      "source_board": "northmarq",
+      "status": "live-feed",
+      "first_seen": "2026-11-09",
+      "posted_at": "2026-10-15",
       "deadline": null
     },
     {
@@ -1306,10 +1349,10 @@
       "deadline": null
     },
     {
-      "id": "feed-secretariatadvisorsllc-4396076009",
+      "id": "feed-secretariatadvisorsllc-4396459009",
       "company": "Secretariat",
       "title": "Intern, Construction Delay ",
-      "location": "New York, New York, United States",
+      "location": "Los Angeles, California, United States",
       "area": "Nationwide",
       "category": "Consulting",
       "season": "Not specified",
@@ -1320,12 +1363,12 @@
         2028
       ],
       "salary": null,
-      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396076009",
+      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396459009",
       "source": "Secretariat employer feed",
       "source_board": "secretariatadvisorsllc",
       "status": "live-feed",
       "first_seen": "2026-11-09",
-      "posted_at": "2026-09-04",
+      "posted_at": "2026-09-08",
       "deadline": null
     },
     {
@@ -1352,10 +1395,10 @@
       "deadline": null
     },
     {
-      "id": "feed-secretariatadvisorsllc-4396459009",
+      "id": "feed-secretariatadvisorsllc-4396076009",
       "company": "Secretariat",
       "title": "Intern, Construction Delay ",
-      "location": "Los Angeles, California, United States",
+      "location": "New York, New York, United States",
       "area": "Nationwide",
       "category": "Consulting",
       "season": "Not specified",
@@ -1366,12 +1409,12 @@
         2028
       ],
       "salary": null,
-      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396459009",
+      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396076009",
       "source": "Secretariat employer feed",
       "source_board": "secretariatadvisorsllc",
       "status": "live-feed",
       "first_seen": "2026-11-09",
-      "posted_at": "2026-09-08",
+      "posted_at": "2026-09-04",
       "deadline": null
     },
     {
@@ -2472,6 +2515,29 @@
       "status": "not-seen",
       "first_seen": "2026-11-09",
       "posted_at": "2026-09-09",
+      "deadline": null
+    },
+    {
+      "id": "feed-galaxydigitalservices-6256234004",
+      "company": "Galaxy",
+      "title": "2027 Data Center Growth & Development Intern - NYC",
+      "location": "New York",
+      "area": "Nationwide",
+      "category": "Investment",
+      "season": "Not specified",
+      "eligibility": "unknown",
+      "eligibility_note": "Not present on the latest successful employer feed; may have closed. Recheck before applying.",
+      "graduation_years": [
+        2027,
+        2028
+      ],
+      "salary": null,
+      "url": "https://job-boards.greenhouse.io/galaxydigitalservices/jobs/6256234004",
+      "source": "Galaxy employer feed",
+      "source_board": "galaxydigitalservices",
+      "status": "not-seen",
+      "first_seen": "2026-11-12",
+      "posted_at": "2026-11-12",
       "deadline": null
     },
     {
