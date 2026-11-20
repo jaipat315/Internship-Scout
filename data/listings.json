@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-19T21:38:09Z",
+  "updated_at": "2026-11-20T21:11:30Z",
   "update_type": "automated_feed_scan",
   "source_note": "ATS feeds checked. A job appears active only when an employer feed returned it; other listings remain unverified leads. Handshake requires a UGA login and is not scraped.",
-  "successful_sources": 34,
+  "successful_sources": 33,
   "configured_sources": 34,
   "jobs": [
     {
@@ -530,7 +530,7 @@
       "source_board": "drivewealth",
       "status": "live-feed",
       "first_seen": "2026-11-09",
-      "posted_at": "2026-11-18",
+      "posted_at": "2026-11-19",
       "deadline": null
     },
     {
@@ -576,7 +576,7 @@
       "source_board": "drivewealth",
       "status": "live-feed",
       "first_seen": "2026-11-18",
-      "posted_at": "2026-11-18",
+      "posted_at": "2026-11-19",
       "deadline": null
     },
     {
@@ -684,6 +684,75 @@
       "status": "live-feed",
       "first_seen": "2026-11-19",
       "posted_at": "2026-11-19",
+      "deadline": null
+    },
+    {
+      "id": "feed-galaxydigitalservices-6266835004",
+      "company": "Galaxy",
+      "title": "2027 Finance (Treasury) Intern - NYC",
+      "location": "New York",
+      "area": "Nationwide",
+      "category": "Finance",
+      "season": "Not specified",
+      "eligibility": "unknown",
+      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
+      "graduation_years": [
+        2027,
+        2028
+      ],
+      "salary": null,
+      "url": "https://job-boards.greenhouse.io/galaxydigitalservices/jobs/6266835004",
+      "source": "Galaxy employer feed",
+      "source_board": "galaxydigitalservices",
+      "status": "live-feed",
+      "first_seen": "2026-11-20",
+      "posted_at": "2026-11-19",
+      "deadline": null
+    },
+    {
+      "id": "feed-galaxydigitalservices-6267160004",
+      "company": "Galaxy",
+      "title": "2027 FP&A Intern - NYC",
+      "location": "New York",
+      "area": "Nationwide",
+      "category": "Finance",
+      "season": "Not specified",
+      "eligibility": "unknown",
+      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
+      "graduation_years": [
+        2027,
+        2028
+      ],
+      "salary": null,
+      "url": "https://job-boards.greenhouse.io/galaxydigitalservices/jobs/6267160004",
+      "source": "Galaxy employer feed",
+      "source_board": "galaxydigitalservices",
+      "status": "live-feed",
+      "first_seen": "2026-11-20",
+      "posted_at": "2026-11-20",
+      "deadline": null
+    },
+    {
+      "id": "feed-galaxydigitalservices-6240963004",
+      "company": "Galaxy",
+      "title": "2027 Investment Banking Summer Analyst - NYC",
+      "location": "New York",
+      "area": "Nationwide",
+      "category": "Banking",
+      "season": "Not specified",
+      "eligibility": "unknown",
+      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
+      "graduation_years": [
+        2027,
+        2028
+      ],
+      "salary": null,
+      "url": "https://job-boards.greenhouse.io/galaxydigitalservices/jobs/6240963004",
+      "source": "Galaxy employer feed",
+      "source_board": "galaxydigitalservices",
+      "status": "live-feed",
+      "first_seen": "2026-11-09",
+      "posted_at": "2026-11-20",
       "deadline": null
     },
     {
@@ -795,7 +864,27 @@
       "source_board": "gcmgrosvenor",
       "status": "live-feed",
       "first_seen": "2026-11-09",
-      "posted_at": "2026-10-30",
+      "posted_at": "2026-11-20",
+      "deadline": null
+    },
+    {
+      "id": "feed-gcmgrosvenor-8208687003",
+      "company": "GCM Grosvenor",
+      "title": "2027 Credit Summer Intern",
+      "location": "Chicago, Illinois, United States",
+      "area": "Nationwide",
+      "category": "Finance",
+      "season": "Not specified",
+      "eligibility": "unknown",
+      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
+      "graduation_years": [],
+      "salary": null,
+      "url": "https://job-boards.greenhouse.io/gcmgrosvenor/jobs/8208687003",
+      "source": "GCM Grosvenor employer feed",
+      "source_board": "gcmgrosvenor",
+      "status": "live-feed",
+      "first_seen": "2026-11-20",
+      "posted_at": "2026-11-20",
       "deadline": null
     },
     {
@@ -815,7 +904,7 @@
       "source_board": "gcmgrosvenor",
       "status": "live-feed",
       "first_seen": "2026-11-09",
-      "posted_at": "2026-11-06",
+      "posted_at": "2026-11-20",
       "deadline": null
     },
     {
@@ -981,26 +1070,6 @@
       "deadline": null
     },
     {
-      "id": "feed-northmarq-5414561008",
-      "company": "Northmarq",
-      "title": "Portfolio and Asset Management Intern, Summer 2027",
-      "location": "Minneapolis, Minnesota, United States",
-      "area": "Nationwide",
-      "category": "Investment",
-      "season": "Summer 2027",
-      "eligibility": "unknown",
-      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
-      "graduation_years": [],
-      "salary": null,
-      "url": "https://job-boards.greenhouse.io/northmarq/jobs/5414561008",
-      "source": "Northmarq employer feed",
-      "source_board": "northmarq",
-      "status": "live-feed",
-      "first_seen": "2026-11-09",
-      "posted_at": "2026-09-28",
-      "deadline": null
-    },
-    {
       "id": "feed-northmarq-5415779008",
       "company": "Northmarq",
       "title": "Portfolio and Asset Management Intern, Summer 2027",
@@ -1018,6 +1087,26 @@
       "status": "live-feed",
       "first_seen": "2026-11-09",
       "posted_at": "2026-10-15",
+      "deadline": null
+    },
+    {
+      "id": "feed-northmarq-5414561008",
+      "company": "Northmarq",
+      "title": "Portfolio and Asset Management Intern, Summer 2027",
+      "location": "Minneapolis, Minnesota, United States",
+      "area": "Nationwide",
+      "category": "Investment",
+      "season": "Summer 2027",
+      "eligibility": "unknown",
+      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
+      "graduation_years": [],
+      "salary": null,
+      "url": "https://job-boards.greenhouse.io/northmarq/jobs/5414561008",
+      "source": "Northmarq employer feed",
+      "source_board": "northmarq",
+      "status": "live-feed",
+      "first_seen": "2026-11-09",
+      "posted_at": "2026-09-28",
       "deadline": null
     },
     {
@@ -1242,7 +1331,7 @@
       "source_board": "rclco",
       "status": "live-feed",
       "first_seen": "2026-11-09",
-      "posted_at": "2026-10-07",
+      "posted_at": "2026-11-19",
       "deadline": null
     },
     {
@@ -1349,29 +1438,6 @@
       "deadline": null
     },
     {
-      "id": "feed-secretariatadvisorsllc-4396459009",
-      "company": "Secretariat",
-      "title": "Intern, Construction Delay ",
-      "location": "Los Angeles, California, United States",
-      "area": "Nationwide",
-      "category": "Consulting",
-      "season": "Not specified",
-      "eligibility": "unknown",
-      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
-      "graduation_years": [
-        2027,
-        2028
-      ],
-      "salary": null,
-      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396459009",
-      "source": "Secretariat employer feed",
-      "source_board": "secretariatadvisorsllc",
-      "status": "live-feed",
-      "first_seen": "2026-11-09",
-      "posted_at": "2026-09-08",
-      "deadline": null
-    },
-    {
       "id": "feed-secretariatadvisorsllc-4396088009",
       "company": "Secretariat",
       "title": "Intern, Construction Delay ",
@@ -1415,6 +1481,29 @@
       "status": "live-feed",
       "first_seen": "2026-11-09",
       "posted_at": "2026-09-04",
+      "deadline": null
+    },
+    {
+      "id": "feed-secretariatadvisorsllc-4396459009",
+      "company": "Secretariat",
+      "title": "Intern, Construction Delay ",
+      "location": "Los Angeles, California, United States",
+      "area": "Nationwide",
+      "category": "Consulting",
+      "season": "Not specified",
+      "eligibility": "unknown",
+      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
+      "graduation_years": [
+        2027,
+        2028
+      ],
+      "salary": null,
+      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396459009",
+      "source": "Secretariat employer feed",
+      "source_board": "secretariatadvisorsllc",
+      "status": "live-feed",
+      "first_seen": "2026-11-09",
+      "posted_at": "2026-09-08",
       "deadline": null
     },
     {
@@ -2538,29 +2627,6 @@
       "status": "not-seen",
       "first_seen": "2026-11-12",
       "posted_at": "2026-11-12",
-      "deadline": null
-    },
-    {
-      "id": "feed-galaxydigitalservices-6240963004",
-      "company": "Galaxy",
-      "title": "2027 Investment Banking Summer Analyst - NYC",
-      "location": "New York",
-      "area": "Nationwide",
-      "category": "Banking",
-      "season": "Not specified",
-      "eligibility": "unknown",
-      "eligibility_note": "Not present on the latest successful employer feed; may have closed. Recheck before applying.",
-      "graduation_years": [
-        2027,
-        2028
-      ],
-      "salary": null,
-      "url": "https://job-boards.greenhouse.io/galaxydigitalservices/jobs/6240963004",
-      "source": "Galaxy employer feed",
-      "source_board": "galaxydigitalservices",
-      "status": "not-seen",
-      "first_seen": "2026-11-09",
-      "posted_at": "2026-11-13",
       "deadline": null
     },
     {
