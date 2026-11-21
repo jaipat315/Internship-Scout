@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-20T21:11:30Z",
+  "updated_at": "2026-11-21T20:08:20Z",
   "update_type": "automated_feed_scan",
   "source_note": "ATS feeds checked. A job appears active only when an employer feed returned it; other listings remain unverified leads. Handshake requires a UGA login and is not scraped.",
-  "successful_sources": 33,
+  "successful_sources": 34,
   "configured_sources": 34,
   "jobs": [
     {
@@ -729,29 +729,6 @@
       "source_board": "galaxydigitalservices",
       "status": "live-feed",
       "first_seen": "2026-11-20",
-      "posted_at": "2026-11-20",
-      "deadline": null
-    },
-    {
-      "id": "feed-galaxydigitalservices-6240963004",
-      "company": "Galaxy",
-      "title": "2027 Investment Banking Summer Analyst - NYC",
-      "location": "New York",
-      "area": "Nationwide",
-      "category": "Banking",
-      "season": "Not specified",
-      "eligibility": "unknown",
-      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
-      "graduation_years": [
-        2027,
-        2028
-      ],
-      "salary": null,
-      "url": "https://job-boards.greenhouse.io/galaxydigitalservices/jobs/6240963004",
-      "source": "Galaxy employer feed",
-      "source_board": "galaxydigitalservices",
-      "status": "live-feed",
-      "first_seen": "2026-11-09",
       "posted_at": "2026-11-20",
       "deadline": null
     },
@@ -2627,6 +2604,29 @@
       "status": "not-seen",
       "first_seen": "2026-11-12",
       "posted_at": "2026-11-12",
+      "deadline": null
+    },
+    {
+      "id": "feed-galaxydigitalservices-6240963004",
+      "company": "Galaxy",
+      "title": "2027 Investment Banking Summer Analyst - NYC",
+      "location": "New York",
+      "area": "Nationwide",
+      "category": "Banking",
+      "season": "Not specified",
+      "eligibility": "unknown",
+      "eligibility_note": "Not present on the latest successful employer feed; may have closed. Recheck before applying.",
+      "graduation_years": [
+        2027,
+        2028
+      ],
+      "salary": null,
+      "url": "https://job-boards.greenhouse.io/galaxydigitalservices/jobs/6240963004",
+      "source": "Galaxy employer feed",
+      "source_board": "galaxydigitalservices",
+      "status": "not-seen",
+      "first_seen": "2026-11-09",
+      "posted_at": "2026-11-20",
       "deadline": null
     },
     {
