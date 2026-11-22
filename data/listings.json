@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-21T20:08:20Z",
+  "updated_at": "2026-11-22T20:23:11Z",
   "update_type": "automated_feed_scan",
   "source_note": "ATS feeds checked. A job appears active only when an employer feed returned it; other listings remain unverified leads. Handshake requires a UGA login and is not scraped.",
   "successful_sources": 34,
@@ -1415,29 +1415,6 @@
       "deadline": null
     },
     {
-      "id": "feed-secretariatadvisorsllc-4396088009",
-      "company": "Secretariat",
-      "title": "Intern, Construction Delay ",
-      "location": "Houston, Texas, United States",
-      "area": "Nationwide",
-      "category": "Consulting",
-      "season": "Not specified",
-      "eligibility": "unknown",
-      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
-      "graduation_years": [
-        2027,
-        2028
-      ],
-      "salary": null,
-      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396088009",
-      "source": "Secretariat employer feed",
-      "source_board": "secretariatadvisorsllc",
-      "status": "live-feed",
-      "first_seen": "2026-11-09",
-      "posted_at": "2026-09-04",
-      "deadline": null
-    },
-    {
       "id": "feed-secretariatadvisorsllc-4396076009",
       "company": "Secretariat",
       "title": "Intern, Construction Delay ",
@@ -1453,6 +1430,29 @@
       ],
       "salary": null,
       "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396076009",
+      "source": "Secretariat employer feed",
+      "source_board": "secretariatadvisorsllc",
+      "status": "live-feed",
+      "first_seen": "2026-11-09",
+      "posted_at": "2026-09-04",
+      "deadline": null
+    },
+    {
+      "id": "feed-secretariatadvisorsllc-4396088009",
+      "company": "Secretariat",
+      "title": "Intern, Construction Delay ",
+      "location": "Houston, Texas, United States",
+      "area": "Nationwide",
+      "category": "Consulting",
+      "season": "Not specified",
+      "eligibility": "unknown",
+      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
+      "graduation_years": [
+        2027,
+        2028
+      ],
+      "salary": null,
+      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396088009",
       "source": "Secretariat employer feed",
       "source_board": "secretariatadvisorsllc",
       "status": "live-feed",
