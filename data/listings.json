@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-24T00:57:01Z",
+  "updated_at": "2026-11-24T23:03:07Z",
   "update_type": "automated_feed_scan",
   "source_note": "ATS feeds checked. A job appears active only when an employer feed returned it; other listings remain unverified leads. Handshake requires a UGA login and is not scraped.",
-  "successful_sources": 34,
+  "successful_sources": 33,
   "configured_sources": 34,
   "jobs": [
     {
@@ -1170,26 +1170,6 @@
       "deadline": null
     },
     {
-      "id": "feed-point72-8236734002",
-      "company": "Point72",
-      "title": "Micro-Intern: Research Technology Developer (IAP)",
-      "location": "New York",
-      "area": "Nationwide",
-      "category": "Investment",
-      "season": "Not specified",
-      "eligibility": "unknown",
-      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
-      "graduation_years": [],
-      "salary": null,
-      "url": "https://boards.greenhouse.io/point72/jobs/8236734002?gh_jid=8236734002",
-      "source": "Point72 employer feed",
-      "source_board": "point72",
-      "status": "live-feed",
-      "first_seen": "2026-11-09",
-      "posted_at": "2026-11-09",
-      "deadline": null
-    },
-    {
       "id": "feed-point72-7297667002",
       "company": "Point72",
       "title": "Quantitative Research Intern",
@@ -1415,29 +1395,6 @@
       "deadline": null
     },
     {
-      "id": "feed-secretariatadvisorsllc-4396088009",
-      "company": "Secretariat",
-      "title": "Intern, Construction Delay ",
-      "location": "Houston, Texas, United States",
-      "area": "Nationwide",
-      "category": "Consulting",
-      "season": "Not specified",
-      "eligibility": "unknown",
-      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
-      "graduation_years": [
-        2027,
-        2028
-      ],
-      "salary": null,
-      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396088009",
-      "source": "Secretariat employer feed",
-      "source_board": "secretariatadvisorsllc",
-      "status": "live-feed",
-      "first_seen": "2026-11-09",
-      "posted_at": "2026-09-04",
-      "deadline": null
-    },
-    {
       "id": "feed-secretariatadvisorsllc-4396076009",
       "company": "Secretariat",
       "title": "Intern, Construction Delay ",
@@ -1453,6 +1410,29 @@
       ],
       "salary": null,
       "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396076009",
+      "source": "Secretariat employer feed",
+      "source_board": "secretariatadvisorsllc",
+      "status": "live-feed",
+      "first_seen": "2026-11-09",
+      "posted_at": "2026-09-04",
+      "deadline": null
+    },
+    {
+      "id": "feed-secretariatadvisorsllc-4396088009",
+      "company": "Secretariat",
+      "title": "Intern, Construction Delay ",
+      "location": "Houston, Texas, United States",
+      "area": "Nationwide",
+      "category": "Consulting",
+      "season": "Not specified",
+      "eligibility": "unknown",
+      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
+      "graduation_years": [
+        2027,
+        2028
+      ],
+      "salary": null,
+      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396088009",
       "source": "Secretariat employer feed",
       "source_board": "secretariatadvisorsllc",
       "status": "live-feed",
@@ -2729,6 +2709,26 @@
       "graduation_years": [
         2029
       ]
+    },
+    {
+      "id": "feed-point72-8236734002",
+      "company": "Point72",
+      "title": "Micro-Intern: Research Technology Developer (IAP)",
+      "location": "New York",
+      "area": "Nationwide",
+      "category": "Investment",
+      "season": "Not specified",
+      "eligibility": "unknown",
+      "eligibility_note": "Not present on the latest successful employer feed; may have closed. Recheck before applying.",
+      "graduation_years": [],
+      "salary": null,
+      "url": "https://boards.greenhouse.io/point72/jobs/8236734002?gh_jid=8236734002",
+      "source": "Point72 employer feed",
+      "source_board": "point72",
+      "status": "not-seen",
+      "first_seen": "2026-11-09",
+      "posted_at": "2026-11-09",
+      "deadline": null
     },
     {
       "id": "feed-robinhood-8198241",

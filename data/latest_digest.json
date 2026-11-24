@@ -1,9 +1,8 @@
 {
-  "updated_at": "2026-11-24T00:57:01Z",
-  "added_ids": [
-    "feed-frazierdeeter-8214073003",
-    "feed-andurilindustries-5236583007"
+  "updated_at": "2026-11-24T23:03:07Z",
+  "added_ids": [],
+  "errors": [
+    "Anduril: TimeoutError — The read operation timed out"
   ],
-  "errors": [],
-  "message": "Daily scan completed: 34 employer boards checked, 2 newly discovered internships."
+  "message": "Daily scan completed: 33 employer boards checked, 0 newly discovered internships."
 }
