@@ -1,6 +1,9 @@
 {
-  "updated_at": "2026-11-22T20:23:11Z",
-  "added_ids": [],
+  "updated_at": "2026-11-24T00:57:01Z",
+  "added_ids": [
+    "feed-frazierdeeter-8214073003",
+    "feed-andurilindustries-5236583007"
+  ],
   "errors": [],
-  "message": "Daily scan completed: 34 employer boards checked, 0 newly discovered internships."
+  "message": "Daily scan completed: 34 employer boards checked, 2 newly discovered internships."
 }
