@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-24T23:03:07Z",
+  "updated_at": "2026-11-25T22:35:43Z",
   "update_type": "automated_feed_scan",
   "source_note": "ATS feeds checked. A job appears active only when an employer feed returned it; other listings remain unverified leads. Handshake requires a UGA login and is not scraped.",
-  "successful_sources": 33,
+  "successful_sources": 34,
   "configured_sources": 34,
   "jobs": [
     {
@@ -513,7 +513,7 @@
     {
       "id": "feed-drivewealth-8039368003",
       "company": "DriveWealth",
-      "title": "AI Consulting Associate Program (AI CAP) Brokerage Intern - Summer 2027",
+      "title": "AI Consulting Associate Program (AI CAP) Brokerage Intern, Summer 2027",
       "location": "Office - Chicago",
       "area": "Nationwide",
       "category": "Banking",
@@ -530,13 +530,13 @@
       "source_board": "drivewealth",
       "status": "live-feed",
       "first_seen": "2026-11-09",
-      "posted_at": "2026-11-19",
+      "posted_at": "2026-11-25",
       "deadline": null
     },
     {
       "id": "feed-drivewealth-8200548003",
       "company": "DriveWealth",
-      "title": "AI Consulting Associate Program (AI CAP) People Analytics Intern - Summer 2027",
+      "title": "AI Consulting Associate Program (AI CAP) People Analytics Intern, Summer 2027",
       "location": "Office - Chicago; Office - NYC",
       "area": "Nationwide",
       "category": "Consulting",
@@ -553,13 +553,13 @@
       "source_board": "drivewealth",
       "status": "live-feed",
       "first_seen": "2026-11-18",
-      "posted_at": "2026-11-18",
+      "posted_at": "2026-11-25",
       "deadline": null
     },
     {
       "id": "feed-drivewealth-8038087003",
       "company": "DriveWealth",
-      "title": "AI Consulting Associate Program (AI CAP) Product Owner Intern - Summer 2027",
+      "title": "AI Consulting Associate Program (AI CAP) Product Owner Intern, Summer 2027",
       "location": "Office - Chicago; Office - NYC",
       "area": "Nationwide",
       "category": "Consulting",
@@ -576,7 +576,7 @@
       "source_board": "drivewealth",
       "status": "live-feed",
       "first_seen": "2026-11-18",
-      "posted_at": "2026-11-19",
+      "posted_at": "2026-11-25",
       "deadline": null
     },
     {
@@ -1395,29 +1395,6 @@
       "deadline": null
     },
     {
-      "id": "feed-secretariatadvisorsllc-4396076009",
-      "company": "Secretariat",
-      "title": "Intern, Construction Delay ",
-      "location": "New York, New York, United States",
-      "area": "Nationwide",
-      "category": "Consulting",
-      "season": "Not specified",
-      "eligibility": "unknown",
-      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
-      "graduation_years": [
-        2027,
-        2028
-      ],
-      "salary": null,
-      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396076009",
-      "source": "Secretariat employer feed",
-      "source_board": "secretariatadvisorsllc",
-      "status": "live-feed",
-      "first_seen": "2026-11-09",
-      "posted_at": "2026-09-04",
-      "deadline": null
-    },
-    {
       "id": "feed-secretariatadvisorsllc-4396088009",
       "company": "Secretariat",
       "title": "Intern, Construction Delay ",
@@ -1433,6 +1410,29 @@
       ],
       "salary": null,
       "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396088009",
+      "source": "Secretariat employer feed",
+      "source_board": "secretariatadvisorsllc",
+      "status": "live-feed",
+      "first_seen": "2026-11-09",
+      "posted_at": "2026-09-04",
+      "deadline": null
+    },
+    {
+      "id": "feed-secretariatadvisorsllc-4396076009",
+      "company": "Secretariat",
+      "title": "Intern, Construction Delay ",
+      "location": "New York, New York, United States",
+      "area": "Nationwide",
+      "category": "Consulting",
+      "season": "Not specified",
+      "eligibility": "unknown",
+      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
+      "graduation_years": [
+        2027,
+        2028
+      ],
+      "salary": null,
+      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4396076009",
       "source": "Secretariat employer feed",
       "source_board": "secretariatadvisorsllc",
       "status": "live-feed",
@@ -1487,29 +1487,6 @@
       "deadline": null
     },
     {
-      "id": "feed-secretariatadvisorsllc-4401579009",
-      "company": "Secretariat",
-      "title": "Intern, Damages & Valuations (Summer 2027)",
-      "location": "Los Angeles, California, United States",
-      "area": "Nationwide",
-      "category": "Investment",
-      "season": "Summer 2027",
-      "eligibility": "unknown",
-      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
-      "graduation_years": [
-        2027,
-        2028
-      ],
-      "salary": null,
-      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4401579009",
-      "source": "Secretariat employer feed",
-      "source_board": "secretariatadvisorsllc",
-      "status": "live-feed",
-      "first_seen": "2026-11-09",
-      "posted_at": "2026-09-10",
-      "deadline": null
-    },
-    {
       "id": "feed-secretariatadvisorsllc-4401585009",
       "company": "Secretariat",
       "title": "Intern, Damages & Valuations (Summer 2027)",
@@ -1525,6 +1502,29 @@
       ],
       "salary": null,
       "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4401585009",
+      "source": "Secretariat employer feed",
+      "source_board": "secretariatadvisorsllc",
+      "status": "live-feed",
+      "first_seen": "2026-11-09",
+      "posted_at": "2026-09-10",
+      "deadline": null
+    },
+    {
+      "id": "feed-secretariatadvisorsllc-4401579009",
+      "company": "Secretariat",
+      "title": "Intern, Damages & Valuations (Summer 2027)",
+      "location": "Los Angeles, California, United States",
+      "area": "Nationwide",
+      "category": "Investment",
+      "season": "Summer 2027",
+      "eligibility": "unknown",
+      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
+      "graduation_years": [
+        2027,
+        2028
+      ],
+      "salary": null,
+      "url": "https://job-boards.greenhouse.io/secretariatadvisorsllc/jobs/4401579009",
       "source": "Secretariat employer feed",
       "source_board": "secretariatadvisorsllc",
       "status": "live-feed",
