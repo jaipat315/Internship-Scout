@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-25T22:35:43Z",
+  "updated_at": "2026-11-26T22:23:30Z",
   "update_type": "automated_feed_scan",
   "source_note": "ATS feeds checked. A job appears active only when an employer feed returned it; other listings remain unverified leads. Handshake requires a UGA login and is not scraped.",
   "successful_sources": 34,
@@ -768,29 +768,6 @@
       ],
       "salary": null,
       "url": "https://job-boards.greenhouse.io/galaxydigitalservices/jobs/6250004004",
-      "source": "Galaxy employer feed",
-      "source_board": "galaxydigitalservices",
-      "status": "live-feed",
-      "first_seen": "2026-11-09",
-      "posted_at": "2026-11-06",
-      "deadline": null
-    },
-    {
-      "id": "feed-galaxydigitalservices-6250062004",
-      "company": "Galaxy",
-      "title": "2027 Risk Intern - NYC",
-      "location": "New York",
-      "area": "Nationwide",
-      "category": "Risk",
-      "season": "Not specified",
-      "eligibility": "unknown",
-      "eligibility_note": "Class-year eligibility is not explicitly established; verify before applying",
-      "graduation_years": [
-        2027,
-        2028
-      ],
-      "salary": null,
-      "url": "https://job-boards.greenhouse.io/galaxydigitalservices/jobs/6250062004",
       "source": "Galaxy employer feed",
       "source_board": "galaxydigitalservices",
       "status": "live-feed",
@@ -2627,6 +2604,29 @@
       "status": "not-seen",
       "first_seen": "2026-11-09",
       "posted_at": "2026-11-20",
+      "deadline": null
+    },
+    {
+      "id": "feed-galaxydigitalservices-6250062004",
+      "company": "Galaxy",
+      "title": "2027 Risk Intern - NYC",
+      "location": "New York",
+      "area": "Nationwide",
+      "category": "Risk",
+      "season": "Not specified",
+      "eligibility": "unknown",
+      "eligibility_note": "Not present on the latest successful employer feed; may have closed. Recheck before applying.",
+      "graduation_years": [
+        2027,
+        2028
+      ],
+      "salary": null,
+      "url": "https://job-boards.greenhouse.io/galaxydigitalservices/jobs/6250062004",
+      "source": "Galaxy employer feed",
+      "source_board": "galaxydigitalservices",
+      "status": "not-seen",
+      "first_seen": "2026-11-09",
+      "posted_at": "2026-11-06",
       "deadline": null
     },
     {
